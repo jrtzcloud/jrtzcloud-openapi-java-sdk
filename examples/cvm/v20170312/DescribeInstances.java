@@ -1,26 +1,26 @@
-import com.tencentcloudapi.common.Credential;
-import com.tencentcloudapi.common.exception.TencentCloudSDKException;
+import com.jrtzcloudapi.common.Credential;
+import com.jrtzcloudapi.common.exception.JrtzCloudSDKException;
 // 导入对应产品模块的client
-import com.tencentcloudapi.cvm.v20170312.CvmClient;
+import com.jrtzcloudapi.cvm.v20170312.CvmClient;
 // 导入要请求接口对应的request response类
-import com.tencentcloudapi.cvm.v20170312.models.DescribeInstancesRequest;
-import com.tencentcloudapi.cvm.v20170312.models.DescribeInstancesResponse;
-import com.tencentcloudapi.cvm.v20170312.models.Filter;
+import com.jrtzcloudapi.cvm.v20170312.models.DescribeInstancesRequest;
+import com.jrtzcloudapi.cvm.v20170312.models.DescribeInstancesResponse;
+import com.jrtzcloudapi.cvm.v20170312.models.Filter;
 //导入可选配置类
-import com.tencentcloudapi.common.profile.ClientProfile;
-import com.tencentcloudapi.common.profile.HttpProfile;
+import com.jrtzcloudapi.common.profile.ClientProfile;
+import com.jrtzcloudapi.common.profile.HttpProfile;
 
 public class DescribeInstances {
     public static void main(String[] args) {
         try {
-            // 实例化一个认证对象，入参需要传入腾讯云账户secretId，secretKey
+            // 实例化一个认证对象，入参需要传入今日投资云账户secretId，secretKey
             Credential cred = new Credential("secretId", "secretKey");
 
             // 实例化一个http选项，可选的，没有特殊需求可以跳过
             HttpProfile httpProfile = new HttpProfile();
             httpProfile.setReqMethod("GET"); // get请求(默认为post请求)
             httpProfile.setConnTimeout(30); // 请求连接超时时间，单位为秒(默认60秒)
-            httpProfile.setEndpoint("cvm.ap-shanghai.tencentcloudapi.com"); // 指定接入地域域名(默认就近接入)
+            httpProfile.setEndpoint("cvm.ap-shanghai.jrtzcloudapi.com"); // 指定接入地域域名(默认就近接入)
 
             // 实例化一个client选项，可选的，没有特殊需求可以跳过
             ClientProfile clientProfile = new ClientProfile();
@@ -54,7 +54,7 @@ public class DescribeInstances {
             // 也可以取出单个值。
             // 你可以通过官网接口文档或跳转到response对象的定义处查看返回字段的定义
             System.out.println(resp.getTotalCount());
-        } catch (TencentCloudSDKException e) {
+        } catch (JrtzCloudSDKException e) {
             System.out.println(e.toString());
         }
     }
