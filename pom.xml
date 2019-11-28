@@ -1,13 +1,13 @@
 <?xml version="1.0"?>
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
   <modelVersion>4.0.0</modelVersion>
-  <groupId>com.tencentcloudapi</groupId>
-  <artifactId>tencentcloud-sdk-java</artifactId>
+  <groupId>com.jrtzcloudapi</groupId>
+  <artifactId>jrtzcloud-sdk-java</artifactId>
   <version>3.0.110</version>
   <packaging>jar</packaging>
-  <name>tencentcloud-sdk-java</name>
-  <url>https://cloud.tencent.com/</url>
-  <description>Tencent Cloud Open API SDK for Java</description>
+  <name>jrtzcloud-sdk-java</name>
+  <url>https://cloud.jrtz.com/</url>
+  <description>Jrtz Cloud Open API SDK for Java</description>
   <dependencies>
     <dependency>
       <groupId>com.squareup.okhttp</groupId>
@@ -112,19 +112,19 @@
       <name>Apache License, Version 2.0</name>
       <url>http://www.apache.org/licenses/LICENSE-2.0</url>
       <distribution>repo</distribution>
-      <comments>tencentcloudapi java sdk</comments>
+      <comments>jrtzcloudapi java sdk</comments>
     </license>
   </licenses>
   <scm>
-    <connection>scm:git:https://github.com/TencentCloud/tencentcloud-sdk-java.git</connection>
-    <developerConnection>scm:git:https://github.com/TencentCloud/tencentcloud-sdk-java.git</developerConnection>
-    <url>https://github.com/TencentCloud/tencentcloud-sdk-java</url>
+    <connection>scm:git:https://github.com/JrtzCloud/jrtzcloud-sdk-java.git</connection>
+    <developerConnection>scm:git:https://github.com/JrtzCloud/jrtzcloud-sdk-java.git</developerConnection>
+    <url>https://github.com/JrtzCloud/jrtzcloud-sdk-java</url>
   </scm>
   <developers>
     <developer>
-      <id>tencentcloudapi</id>
-      <name>tencentcloudapi</name>
-      <email>tencentcloudapi@tencent.com</email>
+      <id>jrtzcloudapi</id>
+      <name>jrtzcloudapi</name>
+      <email>jrtzcloudapi@jrtz.com</email>
     </developer>
   </developers>
   <distributionManagement>
