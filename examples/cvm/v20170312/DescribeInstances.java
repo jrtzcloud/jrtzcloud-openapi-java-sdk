@@ -1,3 +1,5 @@
+package cvm.v20170312;
+
 import com.jrtzcloudapi.common.Credential;
 import com.jrtzcloudapi.common.exception.JrtzCloudSDKException;
 // 导入对应产品模块的client
@@ -28,7 +30,7 @@ public class DescribeInstances {
             clientProfile.setHttpProfile(httpProfile);
 
             // 实例化要请求产品(以cvm为例)的client对象,clientProfile是可选的
-            CvmClient client = new CvmClient(cred, "ap-shanghai", clientProfile);
+            CvmClient client = new CvmClient(cred, "ap-shanghai", clientProfile, "/");
 
             // 实例化一个cvm实例信息查询请求对象,每个接口都会对应一个request对象。
             DescribeInstancesRequest req = new DescribeInstancesRequest();

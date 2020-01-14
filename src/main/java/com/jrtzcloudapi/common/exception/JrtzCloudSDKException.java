@@ -54,7 +54,7 @@ public class JrtzCloudSDKException extends Exception {
     	this.requestId = requestId;
     }
     
-    public JrtzCloudSDKException(String message, String requestId, String errorCode) {
+    public JrtzCloudSDKException(String errorCode, String message, String requestId) {
         super(message);
         this.requestId = requestId;
         this.errorCode = errorCode;
@@ -72,15 +72,15 @@ public class JrtzCloudSDKException extends Exception {
      * Get error code
      * @return A string represents error code
      */
-//    public String getErrorCode() {
-//        return errorCode;
-//    }
+    public String getErrorCode() {
+        return errorCode;
+    }
     
     /**
      * 格式化输出异常信息
      * @return 异常信息
      */
     public String toString() {
-    	return "[JrtzCloudSDKException]" + "message:" + this.getMessage() + " requestId:" + this.getRequestId();
+    	return "[JrtzCloudSDKException]" + "ErrorCode:" + this.getErrorCode() + " ErrorMessage:" + this.getMessage() + " RequestId:" + this.getRequestId();
     }
 }

@@ -35,7 +35,7 @@ public class ClientProfile {
     public static final String SIGN_SHA256 = "HmacSHA256";
     
     /**
-     * Signature Version 3
+     * Signature Version 1
      */
     public static final String SIGN_JC1_256 = "JC1-HMAC-SHA256";
     

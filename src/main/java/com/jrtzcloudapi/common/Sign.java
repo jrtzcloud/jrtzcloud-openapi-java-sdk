@@ -41,7 +41,7 @@ public class Sign {
      * @param secretKey
      * @param sigMethod
      * @return string  sign string
-     * @throws SdkException
+     * @throws JrtzCloudSDKException
      */
     public static String sign(String secretKey, String sigStr, String sigMethod) throws JrtzCloudSDKException
     {

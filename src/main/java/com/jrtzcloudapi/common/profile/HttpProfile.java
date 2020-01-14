@@ -31,16 +31,31 @@ public class HttpProfile {
 	 * http协议
 	 */
 	public static final String REQ_HTTP = "http://";
-	
+
+	/**
+	 * get请求
+	 */
+	public static final String REQ_GET = "GET";
+
 	/**
 	 * post请求
 	 */
     public static final String REQ_POST = "POST";
-    
-    /**
-     * get请求
-     */
-    public static final String REQ_GET = "GET";
+
+	/**
+	 * patch请求
+	 */
+	public static final String REQ_PATCH = "PATCH";
+
+	/**
+	 * put请求
+	 */
+	public static final String REQ_PUT = "PUT";
+
+	/**
+	 * delete请求
+	 */
+	public static final String REQ_DELETE = "DELETE";
     
     /**
      * 时间单位，1分钟   60s

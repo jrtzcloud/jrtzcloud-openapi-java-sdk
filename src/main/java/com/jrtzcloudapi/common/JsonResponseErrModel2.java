@@ -16,32 +16,28 @@
  */
 
 package com.jrtzcloudapi.common;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.Expose;
 
+import com.google.gson.annotations.Expose;
+import com.google.gson.annotations.SerializedName;
 
 /**
  * api 报错response类，用以格式化接收失败的http response
  * @author Administrator
  *
  */
-public class JsonResponseErrModel {
-
+public class JsonResponseErrModel2 {
+	
 	@SerializedName("RequestId")
 	@Expose
 	public String requestId;
 
-	@SerializedName("Error")
+	@SerializedName("ErrorCode")
 	@Expose
-	public ErrorInfo error;
+	public String errorCode;
 
-	class ErrorInfo {
-		@SerializedName("Code")
-		@Expose
-		public String code;
+	@Expose
+	@SerializedName("ErrorMessage")
+	public String errorMessage;
 
-		@Expose
-		@SerializedName("Message")
-		public String message;
-	}
 }
+
