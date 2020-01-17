@@ -27,16 +27,13 @@ import com.jrtzcloudapi.common.profile.ClientProfile;
 import com.jrtzcloudapi.common.profile.HttpProfile;
 import com.squareup.okhttp.*;
 import com.squareup.okhttp.Headers.Builder;
-import com.sun.deploy.net.HttpResponse;
 import org.apache.commons.lang3.StringUtils;
 
 import javax.crypto.Mac;
 import javax.net.ssl.SSLContext;
 import javax.xml.bind.DatatypeConverter;
-import javax.xml.bind.annotation.XmlRootElement;
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
-import java.io.Reader;
 import java.io.UnsupportedEncodingException;
 import java.lang.reflect.Type;
 import java.net.InetSocketAddress;
