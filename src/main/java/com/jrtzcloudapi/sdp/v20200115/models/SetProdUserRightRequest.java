@@ -53,7 +53,7 @@ public class SetProdUserRightRequest extends AbstractModel {
     public String getProdId() {
         return ProdId;
     }
-    public void setProdId(String StockCode) {
+    public void setProdId(String ProdId) {
         this.ProdId = ProdId;
     }
 
