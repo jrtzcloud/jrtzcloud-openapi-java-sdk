@@ -402,7 +402,19 @@ abstract public class AbstractClient2 {
         SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
         sdf.setTimeZone(TimeZone.getTimeZone("UTC"));
         String date = sdf.format(new Date(Long.valueOf(timestamp + "000")));
+        // 服务名不取域名末级，改为取文根contextPath值
         String service = endpoint.split("\\.")[0];
+        if(canonicalUri.length() > 1) {
+            service = canonicalUri.substring(1);
+        }else{
+            throw new JrtzCloudSDKException("Context Path for URL is null");
+        }
+        int index = service.indexOf("/");
+        if(index < 1) {
+            throw new JrtzCloudSDKException("Context Path for URL is null");
+        }
+        service = service.substring(0, index);
+
         String credentialScope = date + "/" + service + "/" + "jc1_request";
         String hashedCanonicalRequest = Sign.sha256Hex(canonicalRequest.getBytes());
 
