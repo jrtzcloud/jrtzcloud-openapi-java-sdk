@@ -26,14 +26,14 @@ public class GetAllRiskWarnMessage {
     public static void main(String[] args) {
         try {
             // 实例化一个认证对象，入参需要传入今日投资云账户secretId，secretKey
-            Credential cred = new Credential("D8xc9JKzEmEvry8XRhkP8JPm5b530pdW",
-                                            "w70qzZjKn7kl72FJ7BQ8oHoFFzZ0cUmj");
+            Credential cred = new Credential("RuHmwN6Y60PiNmVJAQvGbV5sv9a6dKPP",
+                                            "BUTGjrtgVALSt3K15dE4I6tMnJSBZ4Ku");
 
             // 实例化一个http选项，可选的，没有特殊需求可以跳过
             HttpProfile httpProfile = new HttpProfile();
 //            httpProfile.setReqMethod("GET"); // get请求(默认为post请求)
             httpProfile.setConnTimeout(30); // 请求连接超时时间，单位为秒(默认60秒)
-            httpProfile.setEndpoint("kong.test.investoday.net"); // 指定接入地域域名(默认就近接入)
+            httpProfile.setEndpoint("sdp.test.investoday.net"); // 指定接入地域域名(默认就近接入)
 
             // 实例化一个client选项，可选的，没有特殊需求可以跳过
             ClientProfile clientProfile = new ClientProfile();

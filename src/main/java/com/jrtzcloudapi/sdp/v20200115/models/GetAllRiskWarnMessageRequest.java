@@ -35,7 +35,7 @@ public class GetAllRiskWarnMessageRequest extends AbstractModel {
      * @param PubDt 消息对应日期，格式YYYY-MM-DD
      */
     public void setPubDt(String PubDt) {
-        PubDt = PubDt;
+        this.PubDt = PubDt;
     }
 
     /**
@@ -51,7 +51,7 @@ public class GetAllRiskWarnMessageRequest extends AbstractModel {
      * @param ExtraData 券商自定义扩展数据，留作备用
      */
     public void setExtraData(String ExtraData) {
-        ExtraData = ExtraData;
+        this.ExtraData = ExtraData;
     }
 
     @Override

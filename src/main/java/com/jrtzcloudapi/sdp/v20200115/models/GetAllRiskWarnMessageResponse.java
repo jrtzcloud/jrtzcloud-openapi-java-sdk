@@ -21,7 +21,7 @@ public class GetAllRiskWarnMessageResponse extends AbstractModel {
     }
 
     public void setData(RiskWarnMessage[] Data) {
-        Data = Data;
+        this.Data = Data;
     }
 
     public String getRequestId() {
@@ -29,7 +29,7 @@ public class GetAllRiskWarnMessageResponse extends AbstractModel {
     }
 
     public void setRequestId(String RequestId) {
-        RequestId = RequestId;
+        this.RequestId = RequestId;
     }
 
     @Override

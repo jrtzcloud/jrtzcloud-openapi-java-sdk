@@ -25,7 +25,7 @@ public class RiskWarnMessage extends AbstractModel {
     }
 
     public void setStockCode(String StockCode) {
-        StockCode = StockCode;
+        this.StockCode = StockCode;
     }
 
     public String getStockName() {
@@ -33,7 +33,7 @@ public class RiskWarnMessage extends AbstractModel {
     }
 
     public void setStockName(String StockName) {
-        StockName = StockName;
+        this.StockName = StockName;
     }
 
     public String[] getRiskTypeList() {
@@ -41,7 +41,7 @@ public class RiskWarnMessage extends AbstractModel {
     }
 
     public void setRiskTypeList(String[] RiskTypeList) {
-        RiskTypeList = RiskTypeList;
+        this.RiskTypeList = RiskTypeList;
     }
 
     @Override
