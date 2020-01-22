@@ -500,6 +500,9 @@ abstract public class AbstractClient2 {
         if ( method != null && method.equals(HttpProfile.REQ_POST)) {
             return "";
         }
+        if (params.size() == 0) {
+            return "";
+        }
         StringBuilder queryString = new StringBuilder("");
         for (Map.Entry<String, String> entry : params.entrySet()) {
             String v;
