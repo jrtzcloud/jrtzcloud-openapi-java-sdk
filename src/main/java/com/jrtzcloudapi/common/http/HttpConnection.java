@@ -53,13 +53,13 @@ public class HttpConnection {
     }
     
     public Response doRequest(Request request) throws JrtzCloudSDKException {
-    	Response response = null;
-    	try {
-    		response = this.client.newCall(request).execute();
-    	} catch (IOException e) {
-    		throw new JrtzCloudSDKException(e.getClass().getName() + "-" + e.getMessage());
-    	}
-    	return response;
+        Response response = null;
+        try {
+            response = this.client.newCall(request).execute();
+        } catch (IOException e) {
+            throw new JrtzCloudSDKException(e.getClass().getName() + "-" + e.getMessage());
+        }
+        return response;
     }
     
     public Response getRequest(String url) throws JrtzCloudSDKException {
@@ -129,6 +129,54 @@ public class HttpConnection {
             request = new Request.Builder()
                     .url(url)
                     .post(RequestBody.create(contentType, body))
+                    .headers(headers)
+                    .build();
+        } catch (IllegalArgumentException e) {
+            throw new JrtzCloudSDKException(e.getClass().getName() + "-" + e.getMessage());
+        }
+
+        return this.doRequest(request);
+    }
+
+    public Response putRequest(String url, byte [] body, Headers headers) throws JrtzCloudSDKException {
+        MediaType contentType = MediaType.parse(headers.get("Content-Type"));
+        Request request = null;
+        try {
+            request = new Request.Builder()
+                    .url(url)
+                    .put(RequestBody.create(contentType, body))
+                    .headers(headers)
+                    .build();
+        } catch (IllegalArgumentException e) {
+            throw new JrtzCloudSDKException(e.getClass().getName() + "-" + e.getMessage());
+        }
+
+        return this.doRequest(request);
+    }
+
+    public Response patchRequest(String url, byte [] body, Headers headers) throws JrtzCloudSDKException {
+        MediaType contentType = MediaType.parse(headers.get("Content-Type"));
+        Request request = null;
+        try {
+            request = new Request.Builder()
+                    .url(url)
+                    .patch(RequestBody.create(contentType, body))
+                    .headers(headers)
+                    .build();
+        } catch (IllegalArgumentException e) {
+            throw new JrtzCloudSDKException(e.getClass().getName() + "-" + e.getMessage());
+        }
+
+        return this.doRequest(request);
+    }
+
+    public Response deleteRequest(String url, byte [] body, Headers headers) throws JrtzCloudSDKException {
+        MediaType contentType = MediaType.parse(headers.get("Content-Type"));
+        Request request = null;
+        try {
+            request = new Request.Builder()
+                    .url(url)
+                    .delete(RequestBody.create(contentType, body))
                     .headers(headers)
                     .build();
         } catch (IllegalArgumentException e) {

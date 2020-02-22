@@ -17,15 +17,13 @@
 
 package com.jrtzcloudapi.common.exception;
 
+import com.jrtzcloudapi.common.utils.StringUtils;
+
 /**
  * 今日投资云api sdk异常类
  */
 public class JrtzCloudSDKException extends Exception {
 
-	
-	/**
-	 * 
-	 */
 	private static final long serialVersionUID = 1L;
 	
 	/**
@@ -36,7 +34,7 @@ public class JrtzCloudSDKException extends Exception {
 	/**
 	 * Error code, When API returns a failure, it must have an error code.
 	 */
-	private String errorCode;
+	private String code;
     
 	/**
 	 * @param message 异常信息
@@ -54,10 +52,10 @@ public class JrtzCloudSDKException extends Exception {
     	this.requestId = requestId;
     }
     
-    public JrtzCloudSDKException(String errorCode, String message, String requestId) {
+    public JrtzCloudSDKException(String code, String message, String requestId) {
         super(message);
         this.requestId = requestId;
-        this.errorCode = errorCode;
+        this.code = code;
     }
     
     /**
@@ -72,8 +70,8 @@ public class JrtzCloudSDKException extends Exception {
      * Get error code
      * @return A string represents error code
      */
-    public String getErrorCode() {
-        return errorCode;
+    public String getCode() {
+        return code;
     }
     
     /**
@@ -81,6 +79,12 @@ public class JrtzCloudSDKException extends Exception {
      * @return 异常信息
      */
     public String toString() {
-    	return "[JrtzCloudSDKException]" + "ErrorCode:" + this.getErrorCode() + " ErrorMessage:" + this.getMessage() + " RequestId:" + this.getRequestId();
+        StringBuffer ex = new StringBuffer("[JrtzCloudSDKException]\n{");
+        if(StringUtils.isNotBlank(getRequestId()))
+            ex.append("\"RequestId\":\"").append(this.getRequestId()).append("\",");
+        if(StringUtils.isNotBlank(getCode()))
+            ex.append("\"Code\":\"").append(this.getCode()).append("\",");
+        ex.append("\"Message\":\"").append(this.getMessage()).append("\"}");
+        return ex.toString();
     }
 }

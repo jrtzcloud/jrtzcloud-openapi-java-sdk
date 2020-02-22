@@ -68,6 +68,14 @@ abstract public class AbstractModel {
             }   
     	}
     }
+
+    protected <V> void setParamArrayArraySimple(HashMap<String, String> map, String prefix, V [][] array) {
+        if (array != null) {
+            for (int i = 0; i < array.length; i++) {
+                this.setParamArraySimple(map, prefix + i + ".", array[i]);
+            }
+        }
+    }
     
     protected <V extends AbstractModel> void setParamObj(HashMap<String, String> map, String prefix, V obj) {
     	if (obj != null) {

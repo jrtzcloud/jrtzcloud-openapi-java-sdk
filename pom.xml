@@ -3,11 +3,12 @@
   <modelVersion>4.0.0</modelVersion>
   <groupId>com.jrtzcloudapi</groupId>
   <artifactId>jrtzcloud-sdk-java</artifactId>
-  <version>3.0.110</version>
+  <version>1.0.0-SNAPSHOT</version>
   <packaging>jar</packaging>
   <name>jrtzcloud-sdk-java</name>
-  <url>https://cloud.jrtz.com/</url>
+  <url>https://help.investoday.net/</url>
   <description>Jrtz Cloud Open API SDK for Java</description>
+
   <dependencies>
     <dependency>
       <groupId>com.squareup.okhttp</groupId>
@@ -24,14 +25,8 @@
       <artifactId>jaxb-api</artifactId>
       <version>2.3.0</version>
     </dependency>
-
-    <dependency>
-      <groupId>org.apache.commons</groupId>
-      <artifactId>commons-lang3</artifactId>
-      <version>3.9</version>
-    </dependency>
-
   </dependencies>
+
   <properties>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     <!--先屏蔽javadoc的严谨告警，后续在优化 -->
@@ -40,23 +35,12 @@
   <build>
     <plugins>
       <plugin>
-        <groupId>org.sonatype.plugins</groupId>
-        <artifactId>nexus-staging-maven-plugin</artifactId>
-        <version>1.6.7</version>
-        <extensions>true</extensions>
-        <configuration>
-          <serverId>Releases</serverId>
-          <nexusUrl>https://oss.sonatype.org/</nexusUrl>
-          <autoReleaseAfterClose>true</autoReleaseAfterClose>
-        </configuration>
-      </plugin>
-      <plugin>
         <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-compiler-plugin</artifactId>
-        <version>2.3.2</version>
+        <version>3.5.1</version>
         <configuration>
-          <source>1.6</source>
-          <target>1.6</target>
+          <source>1.8</source>
+          <target>1.8</target>
           <encoding>UTF-8</encoding>
         </configuration>
       </plugin>
@@ -65,19 +49,21 @@
         <artifactId>maven-jar-plugin</artifactId>
         <version>2.3.2</version>
         <configuration>
-          <excludes>
-                    </excludes>
+          <excludes></excludes>
         </configuration>
       </plugin>
       <plugin>
         <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-source-plugin</artifactId>
         <version>2.1</version>
+        <configuration>
+          <attach>true</attach>
+        </configuration>
         <executions>
           <execution>
-            <id>attach-sources</id>
+            <phase>compile</phase>
             <goals>
-              <goal>jar-no-fork</goal>
+              <goal>jar</goal>
             </goals>
           </execution>
         </executions>
@@ -98,20 +84,6 @@
           <encoding>UTF-8</encoding>
         </configuration>
       </plugin>
-      <plugin>
-        <groupId>org.apache.maven.plugins</groupId>
-        <artifactId>maven-gpg-plugin</artifactId>
-        <version>1.6</version>
-        <executions>
-          <execution>
-            <id>sign-artifacts</id>
-            <phase>verify</phase>
-            <goals>
-              <goal>sign</goal>
-            </goals>
-          </execution>
-        </executions>
-      </plugin>
     </plugins>
   </build>
   <licenses>
@@ -119,31 +91,19 @@
       <name>Apache License, Version 2.0</name>
       <url>http://www.apache.org/licenses/LICENSE-2.0</url>
       <distribution>repo</distribution>
-      <comments>jrtzcloudapi java sdk</comments>
+      <comments>Jrtzcloudapi java sdk</comments>
     </license>
   </licenses>
-  <scm>
-    <connection>scm:git:https://github.com/JrtzCloud/jrtzcloud-sdk-java.git</connection>
-    <developerConnection>scm:git:https://github.com/JrtzCloud/jrtzcloud-sdk-java.git</developerConnection>
-    <url>https://github.com/JrtzCloud/jrtzcloud-sdk-java</url>
-  </scm>
-  <developers>
-    <developer>
-      <id>jrtzcloudapi</id>
-      <name>jrtzcloudapi</name>
-      <email>jrtzcloudapi@jrtz.com</email>
-    </developer>
-  </developers>
   <distributionManagement>
     <repository>
-      <id>Releases</id>
+      <id>nexus-releases</id>
       <name>Nexus Release Repository</name>
-      <url>https://oss.sonatype.org/service/local/staging/deploy/maven2</url>
+      <url>http://192.168.14.111:8082/repository/maven-releases/</url>
     </repository>
     <snapshotRepository>
-      <id>Releases</id>
+      <id>nexus-snapshots</id>
       <name>Nexus Snapshot Repository</name>
-      <url>https://oss.sonatype.org/content/repositories/snapshots</url>
+      <url>http://192.168.14.111:8082/repository/maven-snapshots/</url>
     </snapshotRepository>
   </distributionManagement>
 </project>

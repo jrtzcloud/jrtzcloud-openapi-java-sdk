@@ -2,7 +2,7 @@ package com.jrtzcloudapi.sdp.v20200115;
 
 import com.google.gson.JsonSyntaxException;
 import com.google.gson.reflect.TypeToken;
-import com.jrtzcloudapi.common.AbstractClient2;
+import com.jrtzcloudapi.common.AbstractClient;
 import com.jrtzcloudapi.common.Credential;
 import com.jrtzcloudapi.common.exception.JrtzCloudSDKException;
 import com.jrtzcloudapi.common.profile.ClientProfile;
@@ -17,7 +17,7 @@ import com.jrtzcloudapi.sdp.v20200115.models.SetProdUserRightResponse;
 
 import java.lang.reflect.Type;
 
-public class SdpClient extends AbstractClient2 {
+public class SdpClient extends AbstractClient {
     private static String endpoint = "sdp.test.investoday.net";
     private static String version = "2020-01-15";
 
