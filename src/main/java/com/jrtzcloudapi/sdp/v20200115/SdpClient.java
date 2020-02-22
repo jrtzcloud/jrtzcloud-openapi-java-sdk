@@ -6,14 +6,7 @@ import com.jrtzcloudapi.common.AbstractClient;
 import com.jrtzcloudapi.common.Credential;
 import com.jrtzcloudapi.common.exception.JrtzCloudSDKException;
 import com.jrtzcloudapi.common.profile.ClientProfile;
-import com.jrtzcloudapi.sdp.v20200115.models.GetAllRiskWarnMessageRequest;
-import com.jrtzcloudapi.sdp.v20200115.models.GetAllRiskWarnMessageResponse;
-import com.jrtzcloudapi.sdp.v20200115.models.SetSelfStockRequest;
-import com.jrtzcloudapi.sdp.v20200115.models.SetSelfStockResponse;
-import com.jrtzcloudapi.sdp.v20200115.models.SetOrderListRequest;
-import com.jrtzcloudapi.sdp.v20200115.models.SetOrderListResponse;
-import com.jrtzcloudapi.sdp.v20200115.models.SetProdUserRightRequest;
-import com.jrtzcloudapi.sdp.v20200115.models.SetProdUserRightResponse;
+import com.jrtzcloudapi.sdp.v20200115.models.*;
 
 import java.lang.reflect.Type;
 
@@ -85,7 +78,22 @@ public class SdpClient extends AbstractClient {
         try {
             Type type = new TypeToken<SetProdUserRightResponse>() {
             }.getType();
-            rsp  = gson.fromJson(this.internalRequest(req, "SetProdUserRight"), type);
+            rsp  = gson.fromJson(this.internalRequest(req, "SetOrderList"), type);
+        } catch (JsonSyntaxException e) {
+            throw new JrtzCloudSDKException(e.getMessage());
+        }
+        return rsp;
+    }
+
+    /**
+     * 系统信息
+     */
+    public SysInfoResponse GetSysInfo(SysInfoRequest req) throws JrtzCloudSDKException {
+        SysInfoResponse rsp = null;
+        try {
+            Type type = new TypeToken<SysInfoResponse>() {
+            }.getType();
+            rsp  = gson.fromJson(this.internalRequest(req, "GetSysInfo"), type);
         } catch (JsonSyntaxException e) {
             throw new JrtzCloudSDKException(e.getMessage());
         }
