@@ -20,11 +20,6 @@
       <artifactId>gson</artifactId>
       <version>2.2.4</version>
     </dependency>
-    <dependency>
-      <groupId>javax.xml.bind</groupId>
-      <artifactId>jaxb-api</artifactId>
-      <version>2.3.0</version>
-    </dependency>
   </dependencies>
 
   <properties>
@@ -42,6 +37,10 @@
           <source>1.8</source>
           <target>1.8</target>
           <encoding>UTF-8</encoding>
+<!--          <compilerArguments>-->
+<!--            <verbose />-->
+<!--            <bootclasspath>${java.home}/lib/rt.jar:${java.home}/lib/jce.jar</bootclasspath>-->
+<!--          </compilerArguments>-->
         </configuration>
       </plugin>
       <plugin>

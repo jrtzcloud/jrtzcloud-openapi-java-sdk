@@ -1,11 +1,5 @@
 package com.jrtzcloudapi.common.utils;
 
-//import android.support.annotation.Nullable;
-//import android.util.Base64;
-
-import com.sun.org.apache.xml.internal.security.exceptions.Base64DecodingException;
-import com.sun.org.apache.xml.internal.security.utils.Base64;
-
 import java.io.*;
 import java.util.zip.DataFormatException;
 import java.util.zip.Deflater;
@@ -59,7 +53,7 @@ public class DeflaterUtils {
     /**
      * 解压缩
      */
-    public static String unzipString(byte[] decode) throws Base64DecodingException {
+    public static String unzipString(byte[] decode) throws Exception {
 //        byte[] decode = Base64.decode(zipString, Base64.NO_PADDING);
 //        byte[] decode = Base64.decode(zipString);
         //创建一个新的解压缩器  https://www.yiibai.com/javazip/javazip_inflater.html
@@ -121,7 +115,7 @@ public class DeflaterUtils {
         }
     }
 
-    public static void main(String[] args) throws Base64DecodingException {
+    public static void main(String[] args) throws Exception {
         //原始文件   stroke.json
 //        String strokeJson = LocalFileUtils.getStringFormAsset(context, "stroke.json");
 //        mapper = JSONUtil.toCollection(strokeJson, HashMap.class, String.class, Stroke.class);
