@@ -1,4 +1,4 @@
-package com.jrtzcloudapi.sdp.v20200115;
+package examples.sdp.v20200115;
 
 // 导入对应产品模块的client
 
@@ -8,9 +8,9 @@ import com.jrtzcloudapi.common.Credential;
 import com.jrtzcloudapi.common.exception.JrtzCloudSDKException;
 import com.jrtzcloudapi.common.profile.ClientProfile;
 import com.jrtzcloudapi.common.profile.HttpProfile;
+import com.jrtzcloudapi.sdp.v20200115.SdpClient;
 import com.jrtzcloudapi.sdp.v20200115.models.SysInfoRequest;
 import com.jrtzcloudapi.sdp.v20200115.models.SysInfoResponse;
-import examples.sdp.v20200115.Constants;
 
 public class GetSysInfo_Dev {
 
