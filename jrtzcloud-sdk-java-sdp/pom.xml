@@ -2,23 +2,18 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
   <modelVersion>4.0.0</modelVersion>
   <groupId>com.jrtzcloudapi</groupId>
-  <artifactId>jrtzcloud-sdk-java-core</artifactId>
+  <artifactId>jrtzcloud-sdk-java-sdp</artifactId>
   <version>1.0.0-SNAPSHOT</version>
   <packaging>jar</packaging>
-  <name>jrtzcloud-sdk-java-core</name>
+  <name>jrtzcloud-sdk-java-sdp</name>
   <url>https://help.investoday.net/</url>
-  <description>Jrtz Cloud Open API SDK for Java Core</description>
+  <description>Jrtz Cloud Open API SDK for Java Sdp</description>
 
   <dependencies>
     <dependency>
-      <groupId>com.squareup.okhttp</groupId>
-      <artifactId>okhttp</artifactId>
-      <version>2.5.0</version>
-    </dependency>
-    <dependency>
-      <groupId>com.google.code.gson</groupId>
-      <artifactId>gson</artifactId>
-      <version>2.2.4</version>
+      <groupId>com.jrtzcloudapi</groupId>
+      <artifactId>jrtzcloud-sdk-java-core</artifactId>
+      <version>1.0.0-SNAPSHOT</version>
     </dependency>
   </dependencies>
 
@@ -30,6 +25,26 @@
   <build>
     <plugins>
       <plugin>
+        <groupId>org.codehaus.mojo</groupId>
+        <artifactId>build-helper-maven-plugin</artifactId>
+        <version>3.0.0</version>
+        <executions>
+          <execution>
+            <id>add-source</id>
+            <phase>generate-sources</phase>
+            <goals>
+              <goal>add-source</goal>
+            </goals>
+            <configuration>
+              <sources>
+                <source>src/java/main</source>
+                <source>examples</source>
+              </sources>
+            </configuration>
+          </execution>
+        </executions>
+      </plugin>
+      <plugin>
         <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-compiler-plugin</artifactId>
         <version>3.5.1</version>
@@ -37,10 +52,6 @@
           <source>1.8</source>
           <target>1.8</target>
           <encoding>UTF-8</encoding>
-<!--          <compilerArguments>-->
-<!--            <verbose />-->
-<!--            <bootclasspath>${java.home}/lib/rt.jar:${java.home}/lib/jce.jar</bootclasspath>-->
-<!--          </compilerArguments>-->
         </configuration>
       </plugin>
       <plugin>
@@ -55,7 +66,7 @@
       <name>Apache License, Version 2.0</name>
       <url>http://www.apache.org/licenses/LICENSE-2.0</url>
       <distribution>repo</distribution>
-      <comments>Jrtzcloudapi java sdk core</comments>
+      <comments>Jrtzcloudapi java sdk sdp</comments>
     </license>
   </licenses>
   <distributionManagement>
