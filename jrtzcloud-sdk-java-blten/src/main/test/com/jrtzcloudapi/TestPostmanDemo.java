@@ -44,10 +44,10 @@ public class TestPostmanDemo {
     }
 
     public static void main(String[] args) throws Exception {
-//        String httpRequestMethod = "GET";
+        String httpRequestMethod = "GET";
 //        String httpRequestMethod = "POST";
 //        String httpRequestMethod = "PUT";
-        String httpRequestMethod = "PATCH";
+//        String httpRequestMethod = "PATCH";
 
         String service = "blten";
 //        String service = "sdp-task";
@@ -70,9 +70,9 @@ public class TestPostmanDemo {
 //        String canonicalUri = "/dataapi/consensus/grd_bsc";
 //        String canonicalUri = "/sdp-task/sysinfo";
 //        String canonicalUri = "/blten/projects";
-        String canonicalUri = "/blten/projects/f863b416-06be-11ea-b4e9-000c2947adc4";
+        String canonicalUri = "/blten/model-data/projects/4987324e-577a-11ea-a43a-c60aaec77637";
 //        String canonicalQueryString = "";
-        String canonicalQueryString = "StartDate=2019-11-11&EndDate=2019-11-14";
+        String canonicalQueryString = "RiskN=1&StartDate=2014-01-01&EndDate=2020-02-22";
 //        String canonicalQueryString = "begin_date=20180101&end_date=20180131&ind_id=0&sec_cd=000001&fields=&oper_type=0&page=1&page_count=1000&rpt_yr=";
         String signedHeaders = "content-type;host";
 

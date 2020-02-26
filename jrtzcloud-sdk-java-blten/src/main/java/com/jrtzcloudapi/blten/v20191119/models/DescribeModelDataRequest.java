@@ -8,6 +8,10 @@ import java.util.HashMap;
 
 public class DescribeModelDataRequest extends AbstractModel {
     /**
+     * 模型风险等级，整数且取值为[1,20]
+     */
+    private Integer RiskN;
+    /**
      * 开始日期，格式yyyy-MM-dd
      */
     @SerializedName("StartDate")
@@ -22,8 +26,17 @@ public class DescribeModelDataRequest extends AbstractModel {
 
     @Override
     protected void toMap(HashMap<String, String> map, String prefix) {
+        this.setParamSimple(map, prefix + "RiskN", this.RiskN);
         this.setParamSimple(map, prefix + "StartDate", this.StartDate);
         this.setParamSimple(map, prefix + "EndDate", this.EndDate);
+    }
+
+    public Integer getRiskN() {
+        return RiskN;
+    }
+
+    public void setRiskN(Integer riskN) {
+        RiskN = riskN;
     }
 
     public String getStartDate() {
