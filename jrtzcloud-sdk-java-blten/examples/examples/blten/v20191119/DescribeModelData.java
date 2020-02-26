@@ -15,7 +15,7 @@ public class DescribeModelData {
             // 实例化一个认证对象，入参需要传入今日投资云账户secretId，secretKey
             Credential cred = new Credential(Constants.SECRET_ID, Constants.SECRET_KEY);
 
-            String projectId = "f863b416-06be-11ea-b4e9-000c2947adc4";
+            String projectId = "4987324e-577a-11ea-a43a-c60aaec77637";
 
             // 实例化一个http选项，可选的，没有特殊需求可以跳过
             HttpProfile httpProfile = new HttpProfile();
@@ -35,8 +35,9 @@ public class DescribeModelData {
 
             // 填充请求参数,这里request对象的成员变量即对应接口的入参
             // 你可以通过官网接口文档或跳转到request对象的定义处查看请求参数的定义
-            req.setStartDate("2018-09-22");
+            req.setStartDate("2019-08-22");
             req.setEndDate("2020-02-22");
+            req.setRiskN(1);
 
             /**
              * 通过client对象调用 DescribeModelData 方法发起请求。注意请求方法名与请求对象是对应的

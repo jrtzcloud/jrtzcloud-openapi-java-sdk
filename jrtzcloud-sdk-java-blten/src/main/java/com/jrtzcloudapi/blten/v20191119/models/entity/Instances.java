@@ -32,4 +32,28 @@ public class Instances extends AbstractModel {
         this.setParamArraySimple(map, prefix + "Fields", this.Fields);
         this.setParamArrayObj(map, prefix + "Data", this.Data);
     }
+
+    public Integer getCount() {
+        return Count;
+    }
+
+    public void setCount(Integer count) {
+        Count = count;
+    }
+
+    public String[] getFields() {
+        return Fields;
+    }
+
+    public void setFields(String[] fields) {
+        Fields = fields;
+    }
+
+    public Instance[] getData() {
+        return Data;
+    }
+
+    public void setData(Instance[] data) {
+        Data = data;
+    }
 }

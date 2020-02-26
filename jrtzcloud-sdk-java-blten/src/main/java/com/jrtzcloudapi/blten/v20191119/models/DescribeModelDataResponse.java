@@ -50,5 +50,11 @@ public class DescribeModelDataResponse extends AbstractModel {
         TotalCount = totalCount;
     }
 
+    public Instances getInstances() {
+        return Instances;
+    }
 
+    public void setInstances(Instances instances) {
+        Instances = instances;
+    }
 }

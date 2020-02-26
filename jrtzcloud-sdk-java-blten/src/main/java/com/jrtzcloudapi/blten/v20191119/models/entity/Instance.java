@@ -12,7 +12,7 @@ public class Instance extends AbstractModel {
      */
     @SerializedName("RiskWtSet")
     @Expose
-    private Float[][] RiskWtSet;
+    private Float[] RiskWtSet;
     /**
      * 日期，格式yyyy-MM-dd
      */
@@ -23,14 +23,14 @@ public class Instance extends AbstractModel {
     @Override
     protected void toMap(HashMap<String, String> map, String prefix) {
         this.setParamSimple(map, prefix + "Day", this.Day);
-        this.setParamArrayArraySimple(map, prefix + "RiskWtSets", this.RiskWtSet);
+        this.setParamArraySimple(map, prefix + "RiskWtSets", this.RiskWtSet);
     }
 
-    public Float[][] getRiskWtSet() {
+    public Float[] getRiskWtSet() {
         return RiskWtSet;
     }
 
-    public void setRiskWtSet(Float[][] riskWtSet) {
+    public void setRiskWtSet(Float[] riskWtSet) {
         RiskWtSet = riskWtSet;
     }
 
