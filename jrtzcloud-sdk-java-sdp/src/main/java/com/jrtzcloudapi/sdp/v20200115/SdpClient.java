@@ -56,7 +56,22 @@ public class SdpClient extends AbstractClient {
     }
 
     /**
-     * 设置自选股信息
+     * 批量导入自选股信息
+     */
+    public BulkImportSelfStockResponse BulkImportSelfStock(BulkImportSelfStockRequest req) throws JrtzCloudSDKException {
+        BulkImportSelfStockResponse rsp = null;
+        try {
+            Type type = new TypeToken<BulkImportSelfStockResponse>() {
+            }.getType();
+            rsp  = gson.fromJson(this.internalRequest(req, "BulkImportSelfStock"), type);
+        } catch (JsonSyntaxException e) {
+            throw new JrtzCloudSDKException(e.getMessage());
+        }
+        return rsp;
+    }
+
+    /**
+     * 导入订购业务流水
      */
     public SetOrderListResponse SetOrderList(SetOrderListRequest req) throws JrtzCloudSDKException {
         SetOrderListResponse rsp = null;
@@ -73,7 +88,7 @@ public class SdpClient extends AbstractClient {
     /**
      * 更新用户订阅权益
      */
-    public SetProdUserRightResponse SetOrderList(SetProdUserRightRequest req) throws JrtzCloudSDKException {
+    public SetProdUserRightResponse SetProdUserRight(SetProdUserRightRequest req) throws JrtzCloudSDKException {
         SetProdUserRightResponse rsp = null;
         try {
             Type type = new TypeToken<SetProdUserRightResponse>() {
