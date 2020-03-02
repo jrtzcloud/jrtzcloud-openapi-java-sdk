@@ -35,8 +35,8 @@ public class DescribeModelData {
 
             // 填充请求参数,这里request对象的成员变量即对应接口的入参
             // 你可以通过官网接口文档或跳转到request对象的定义处查看请求参数的定义
-            req.setStartDate("2019-08-22");
-            req.setEndDate("2020-02-22");
+            req.setStartDate("1919-08-22");
+            req.setEndDate("2030-02-22");
             req.setRiskN(1);
 
             /**
