@@ -23,8 +23,8 @@ public class TestPostmanDemo {
 //    private final static String SECRET_ID = "D8xc9JKzEmEvry8XRhkP8JPm5b530pdW";
 //    private final static String SECRET_KEY = "w70qzZjKn7kl72FJ7BQ8oHoFFzZ0cUmj";
     //生产
-    private final static String SECRET_ID = "QlaLiAmJq8iQkKEEaBxLSCwqyuQJKfKP";
-    private final static String SECRET_KEY = "0bVX3wlJQRj3VQr92I0T0pIgXxsF19Le";
+    private final static String SECRET_ID = "RuHmwN6Y60PiNmVJAQvGbV5sv9a6dKPP";
+    private final static String SECRET_KEY = "BUTGjrtgVALSt3K15dE4I6tMnJSBZ4Ku";
 
     private final static String CT_JSON = "application/json; charset=utf-8";
     private final static String CT_JSON_PATCH = "application/json-patch+json; charset=utf-8";
@@ -44,14 +44,11 @@ public class TestPostmanDemo {
     }
 
     public static void main(String[] args) throws Exception {
-//        String httpRequestMethod = "GET";
+        String httpRequestMethod = "GET";
 //        String httpRequestMethod = "POST";
-//        String httpRequestMethod = "PUT";
-        String httpRequestMethod = "PATCH";
 
-        String service = "blten";
-//        String service = "sdp-task";
-        String host = "blten.jrtzcloud.cn";
+        String service = "sdp-cust";
+        String host = "sdp.test.investoday.net";
 //        String host = "sdp.investoday.net";
         String region = "ap-shenzhen";
         String action = "DescribeInstances";
@@ -67,22 +64,13 @@ public class TestPostmanDemo {
         String date = sdf.format(new Date(Long.valueOf(timestamp + "000")));
 
         // ************* 步骤 1：拼接规范请求串 *************
-//        String canonicalUri = "/dataapi/consensus/grd_bsc";
-//        String canonicalUri = "/sdp-task/sysinfo";
-//        String canonicalUri = "/blten/projects";
-        String canonicalUri = "/blten/projects/f863b416-06be-11ea-b4e9-000c2947adc4";
+        String canonicalUri = "/sdp-cust/userBehavior/userClick";
 //        String canonicalQueryString = "";
-        String canonicalQueryString = "StartDate=2019-11-11&EndDate=2019-11-14";
-//        String canonicalQueryString = "begin_date=20180101&end_date=20180131&ind_id=0&sec_cd=000001&fields=&oper_type=0&page=1&page_count=1000&rpt_yr=";
+        String canonicalQueryString = "UserId=001000000000024&AppId=001&ProdId=001&Target=a0001";
         String signedHeaders = "content-type;host";
 
         HashMap<String, String> params =  new HashMap<String, String>();
         params.put("begin_date", "20180101");
-        params.put("end_date", "20180131");
-        params.put("fields", "");
-        params.put("oper_type", "0");
-        params.put("page", "1");
-        params.put("page_count", "1000");
 
         StringBuilder queryString = new StringBuilder("");
         for (Map.Entry<String, String> entry : params.entrySet()) {
@@ -98,10 +86,7 @@ public class TestPostmanDemo {
                     .append("=")
                     .append(v);
         }
-        String patchPayload = "{\"Patch\": [{\"op\": \"replace\", \"path\": \"/Model\", \"value\": {\"AssetList\": [\"ASHARE\", \"USSHARE\", \"HKSHARE\", \"ABS_RETURN\", \"OIL\", \"GOLD\", \"TREASURY\", \"CN_CREDIT\", \"GLOBAL_DEBT\", \"CASH\"], \"OriginalExpRtnDict\": {\"ASHARE\": 0.12, \"USSHARE\": 0.082, \"HKSHARE\": 0.082, \"ABS_RETURN\": 0.045, \"OIL\": 0.085, \"GOLD\": 0.06, \"CN_CREDIT\": 0.045, \"TREASURY\": 0.042, \"GLOBAL_DEBT\": 0.04, \"CASH\": 0.03}, \"BoundaryDict\": {\"ASHARE\": [0, 1.0], \"USSHARE\": [0, 1.0], \"HKSHARE\": [0, 1.0], \"ABS_RETURN\": [0, 0.1], \"OIL\": [0, 1.0], \"GOLD\": [0, 1.0], \"TREASURY\": [0.03, 1.0], \"CN_CREDIT\": [0, 1.0], \"GLOBAL_DEBT\": [0.0, 1.0], \"CASH\": [0.02, 1.0]}, \"ConstrainList\": [[\"ineq\", \"(0.3 * ASHARE) - USSHARE\"]]}}, {\"op\": \"replace\", \"path\": \"/StartDate\", \"value\": \"2019-09-01\"}, {\"op\": \"replace\", \"path\": \"/StopDate\", \"value\": \"2029-09-01\"}]}";
-        String postPayload = "{\"Model\": {\"AssetList\": [\"ASHARE\", \"USSHARE\", \"HKSHARE\", \"ABS_RETURN\", \"OIL\", \"GOLD\", \"TREASURY\", \"CN_CREDIT\", \"GLOBAL_DEBT\", \"CASH\"], \"OriginalExpRtnDict\": {\"ASHARE\": 0.12, \"USSHARE\": 0.082, \"HKSHARE\": 0.082, \"ABS_RETURN\": 0.045, \"OIL\": 0.085, \"GOLD\": 0.06, \"CN_CREDIT\": 0.045, \"TREASURY\": 0.042, \"GLOBAL_DEBT\": 0.04, \"CASH\": 0.03}, \"BoundaryDict\": {\"ASHARE\": [0, 1.0], \"USSHARE\": [0, 1.0], \"HKSHARE\": [0, 1.0], \"ABS_RETURN\": [0, 0.1], \"OIL\": [0, 1.0], \"GOLD\": [0, 1.0], \"TREASURY\": [0.03, 1.0], \"CN_CREDIT\": [0, 1.0], \"GLOBAL_DEBT\": [0.0, 1.0], \"CASH\": [0.02, 1.0]}, \"ConstrainList\": [[\"ineq\", \"(0.3 * ASHARE) - USSHARE\"]]}, \"StartDate\": \"2019-10-01\", \"StopDate\": \"2019-11-11\"}";
-        String putPayload  = "{\"Model\": {\"AssetList\": [\"ASHARE\", \"USSHARE\", \"HKSHARE\", \"ABS_RETURN\", \"OIL\", \"GOLD\", \"TREASURY\", \"CN_CREDIT\", \"GLOBAL_DEBT\", \"CASH\"], \"OriginalExpRtnDict\": {\"ASHARE\": 0.12, \"USSHARE\": 0.082, \"HKSHARE\": 0.082, \"ABS_RETURN\": 0.045, \"OIL\": 0.085, \"GOLD\": 0.06, \"CN_CREDIT\": 0.045, \"TREASURY\": 0.042, \"GLOBAL_DEBT\": 0.04, \"CASH\": 0.03}, \"BoundaryDict\": {\"ASHARE\": [0, 1.0], \"USSHARE\": [0, 1.0], \"HKSHARE\": [0, 1.0], \"ABS_RETURN\": [0, 0.1], \"OIL\": [0, 1.0], \"GOLD\": [0, 1.0], \"TREASURY\": [0.03, 1.0], \"CN_CREDIT\": [0, 1.0], \"GLOBAL_DEBT\": [0.0, 1.0], \"CASH\": [0.02, 1.0]}, \"ConstrainList\": [[\"ineq\", \"(0.3 * ASHARE) - USSHARE\"]]}, \"StartDate\": \"2019-10-01\", \"StopDate\": \"2019-11-12\"}";
-        String payload = patchPayload;
+        String payload = "";
         //        payload = queryString.substring(1);
 //        payload = "{\"Limit\": 1, \"Filters\": [{\"Values\": [\"未命名\"], \"Name\": \"instance-name\"}]}";
 
@@ -159,7 +144,8 @@ public class TestPostmanDemo {
         headers.put("X-JC-Region", region);
 
         StringBuilder sb = new StringBuilder();
-        sb.append("curl -X POST https://").append(host).append(canonicalUri)
+        sb.append("curl -X ").append(httpRequestMethod)
+                .append(" https://").append(host).append(canonicalUri)
                 .append(" -H \"Authorization: ").append(authorization).append("\"")
                 .append(" -H \"Content-Type: "+ contentType +"\"")
                 .append(" -H \"Host: ").append(host).append("\"")
