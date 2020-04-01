@@ -227,7 +227,7 @@ abstract public class AbstractClient {
 
     private Response doGetRequestWithJC1(String endpoint, String action) throws JrtzCloudSDKException {
         String timestamp = String.valueOf(System.currentTimeMillis() / 1000);
-        System.out.println("timestamp==> " + timestamp);
+//        System.out.println("timestamp==> " + timestamp);
 
         String contentType = "application/x-www-form-urlencoded; charset=utf-8";
         String authorization = getAuthorization(endpoint, timestamp, this.profile.getHttpProfile().getReqMethod(), contentType, "".getBytes(), this.path, "");
@@ -263,7 +263,7 @@ abstract public class AbstractClient {
 
     private Response doRequestWithJC1(String endpoint, AbstractModel request, String action) throws JrtzCloudSDKException {
         String timestamp = String.valueOf(System.currentTimeMillis() / 1000);
-        System.out.println("timestamp==> " + timestamp);
+//        System.out.println("timestamp==> " + timestamp);
 
         String httpRequestMethod = this.profile.getHttpProfile().getReqMethod();
         if (httpRequestMethod == null) {
@@ -359,7 +359,7 @@ abstract public class AbstractClient {
             hashedRequestPayload = Sign.sha256Hex(requestPayload);
         }
 
-        System.out.println("hashedRequestPayload==> " + hashedRequestPayload);
+//        System.out.println("hashedRequestPayload==> " + hashedRequestPayload);
 
         String canonicalRequest = httpRequestMethod + "\n" + canonicalUri + "\n" + canonicalQueryString + "\n"
                 + canonicalHeaders + "\n" + signedHeaders + "\n" + hashedRequestPayload;
@@ -383,7 +383,7 @@ abstract public class AbstractClient {
         String credentialScope = date + "/" + service + "/" + "jc1_request";
         String hashedCanonicalRequest = Sign.sha256Hex(canonicalRequest.getBytes());
 
-        System.out.println("hashedCanonicalRequest==> " + hashedCanonicalRequest);
+//        System.out.println("hashedCanonicalRequest==> " + hashedCanonicalRequest);
 
         String stringToSign = "JC1-HMAC-SHA256\n" + timestamp + "\n" + credentialScope + "\n" + hashedCanonicalRequest;
 
@@ -393,7 +393,7 @@ abstract public class AbstractClient {
         byte[] secretService = Sign.hmac256(secretDate, service);
         byte[] secretSigning = Sign.hmac256(secretService, "jc1_request");
         String signature = DatatypeConverter.printHexBinary(Sign.hmac256(secretSigning, stringToSign)).toLowerCase();
-        System.out.println("signature==> " + signature);
+//        System.out.println("signature==> " + signature);
 
         StringBuffer authorization = new StringBuffer();
         authorization.append("JC1-HMAC-SHA256 Credential=").append(secretId).append("/").append(credentialScope)
