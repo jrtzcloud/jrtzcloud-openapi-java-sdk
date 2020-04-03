@@ -1,7 +1,8 @@
-package com.jrtzcloudapi.blten.v20191119;
+package com.jrtzcloudapi;
 
 import com.jrtzcloudapi.common.exception.JrtzCloudSDKException;
 import com.jrtzcloudapi.common.utils.StringUtils;
+import examples.blten.v20191119.Constants;
 
 import javax.crypto.Mac;
 import javax.crypto.spec.SecretKeySpec;
@@ -15,20 +16,13 @@ import java.text.SimpleDateFormat;
 import java.util.*;
 
 public class TestPostmanDemo {
-    private final static Charset UTF8 = StandardCharsets.UTF_8;
-    //guangda
-//    private final static String SECRET_ID = "EndXR66kGfhIcfs86C9nvk1kTZve85Ka";
-//    private final static String SECRET_KEY = "5aJWr9fmN5ARyoKFCJOgaicygO8y4sxK";
-    //zhaoshang
-//    private final static String SECRET_ID = "D8xc9JKzEmEvry8XRhkP8JPm5b530pdW";
-//    private final static String SECRET_KEY = "w70qzZjKn7kl72FJ7BQ8oHoFFzZ0cUmj";
-    //生产
-    private final static String SECRET_ID = "QlaLiAmJq8iQkKEEaBxLSCwqyuQJKfKP";
-    private final static String SECRET_KEY = "0bVX3wlJQRj3VQr92I0T0pIgXxsF19Le";
+    private final static String SECRET_ID = Constants.SECRET_ID;
+    private final static String SECRET_KEY = Constants.SECRET_KEY;
 
     private final static String CT_JSON = "application/json; charset=utf-8";
     private final static String CT_JSON_PATCH = "application/json-patch+json; charset=utf-8";
     private final static String CT_FORM = "application/x-www-form-urlencoded; charset=utf-8";
+    private final static Charset UTF8 = StandardCharsets.UTF_8;
 
     public static byte[] hmac256(byte[] key, String msg) throws Exception {
         Mac mac = Mac.getInstance("HmacSHA256");
@@ -50,9 +44,7 @@ public class TestPostmanDemo {
 //        String httpRequestMethod = "PATCH";
 
         String service = "blten";
-//        String service = "sdp-task";
         String host = "blten.jrtzcloud.cn";
-//        String host = "sdp.investoday.net";
         String region = "ap-shenzhen";
         String action = "DescribeInstances";
         String version = "2019-11-19";
@@ -67,12 +59,10 @@ public class TestPostmanDemo {
         String date = sdf.format(new Date(Long.valueOf(timestamp + "000")));
 
         // ************* 步骤 1：拼接规范请求串 *************
-//        String canonicalUri = "/dataapi/consensus/grd_bsc";
-//        String canonicalUri = "/sdp-task/sysinfo";
-//        String canonicalUri = "/blten/projects";
-        String canonicalUri = "/blten/model-data/projects/4987324e-577a-11ea-a43a-c60aaec77637";
-//        String canonicalQueryString = "";
-        String canonicalQueryString = "RiskN=1&StartDate=2014-01-01&EndDate=2020-02-22";
+        String canonicalUri = "/blten/projects/3939c562-74a0-11ea-a9df-e205e2a85470";
+//        String canonicalUri = "/blten/model-data/projects/3939c562-74a0-11ea-a9df-e205e2a85470";
+        String canonicalQueryString = "";
+//        String canonicalQueryString = "RiskN=1&StartDate=2014-01-01&EndDate=2020-02-22";
 //        String canonicalQueryString = "begin_date=20180101&end_date=20180131&ind_id=0&sec_cd=000001&fields=&oper_type=0&page=1&page_count=1000&rpt_yr=";
         String signedHeaders = "content-type;host";
 

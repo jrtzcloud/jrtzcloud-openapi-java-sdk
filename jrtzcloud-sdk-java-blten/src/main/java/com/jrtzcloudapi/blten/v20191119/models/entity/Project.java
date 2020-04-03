@@ -25,6 +25,12 @@ public class Project extends AbstractModel {
     @Expose
     private String StopDate;
     /**
+     * 任务长度
+     */
+    @SerializedName("TasksLength")
+    @Expose
+    private Integer TasksLength;
+    /**
      * 用户自定义模型
      */
     @SerializedName("Model")
@@ -36,6 +42,7 @@ public class Project extends AbstractModel {
         this.setParamSimple(map, prefix + "ProjectId", this.ProjectId);
         this.setParamSimple(map, prefix + "StartDate", this.StartDate);
         this.setParamSimple(map, prefix + "StopDate", this.StopDate);
+        this.setParamSimple(map, prefix + "TasksLength", this.TasksLength);
         this.setParamObj(map, prefix + "Model", this.Model);
     }
 
@@ -62,6 +69,14 @@ public class Project extends AbstractModel {
 
     public void setStopDate(String stopDate) {
         StopDate = stopDate;
+    }
+
+    public Integer getTasksLength() {
+        return TasksLength;
+    }
+
+    public void setTasksLength(Integer tasksLength) {
+        TasksLength = tasksLength;
     }
 
     public Model getModel() {

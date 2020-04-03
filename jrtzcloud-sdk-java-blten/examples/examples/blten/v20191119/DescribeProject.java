@@ -13,7 +13,7 @@ public class DescribeProject {
             // 实例化一个认证对象，入参需要传入今日投资云账户secretId，secretKey
             Credential cred = new Credential(Constants.SECRET_ID, Constants.SECRET_KEY);
 
-            String projectId = "f863b416-06be-11ea-b4e9-000c2947adc4";
+            String projectId = "3939c562-74a0-11ea-a9df-e205e2a85470";
 
             // 实例化一个http选项，可选的，没有特殊需求可以跳过
             HttpProfile httpProfile = new HttpProfile();
