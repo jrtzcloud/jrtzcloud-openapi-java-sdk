@@ -14,20 +14,11 @@ import java.security.MessageDigest;
 import java.text.SimpleDateFormat;
 import java.util.*;
 
-public class TestPostmanDemo {
+public class TestDataapiDemo {
     private final static Charset UTF8 = StandardCharsets.UTF_8;
-    //guangda
-//    private final static String SECRET_ID = "EndXR66kGfhIcfs86C9nvk1kTZve85Ka";
-//    private final static String SECRET_KEY = "5aJWr9fmN5ARyoKFCJOgaicygO8y4sxK";
-    //zhaoshang
-//    private final static String SECRET_ID = "D8xc9JKzEmEvry8XRhkP8JPm5b530pdW";
-//    private final static String SECRET_KEY = "w70qzZjKn7kl72FJ7BQ8oHoFFzZ0cUmj";
-    //个股诊断演示
-//    private final static String SECRET_ID = "nT3GoChoSilVSWskjjCxEKA1G8R6otAO";
-//    private final static String SECRET_KEY = "ZWqy9tQXHVzwOvBULX5GS0QWjv7E8Bz8";
-    //个股诊断生产
-    private final static String SECRET_ID = "stu5fnrW50QWZgXBM9b0ZlSHYstfoxZ9";
-    private final static String SECRET_KEY = "we6COHqWiKBHAlA24GJ7C57D7iYyYz9L";
+
+    private final static String SECRET_ID = "nT3GoChoSilVSWskjjCxEKA1G8R6otAO";
+    private final static String SECRET_KEY = "ZWqy9tQXHVzwOvBULX5GS0QWjv7E8Bz8";
 
     private final static String CT_JSON = "application/json; charset=utf-8";
     private final static String CT_JSON_PATCH = "application/json-patch+json; charset=utf-8";
@@ -50,12 +41,12 @@ public class TestPostmanDemo {
         String httpRequestMethod = "GET";
 //        String httpRequestMethod = "POST";
 
-        String timestamp = "1584959350";
-        String service = "sdp-cust";
-        String host = "sdp.investoday.net";
-//        String host = "sdp.investoday.net";
-        String canonicalUri = "/sdp-cust/userBehavior/userClick";
-        String canonicalQueryString = "AppId=001&ProdId=001&Target=a0001";
+//        String timestamp = "1584959350";
+        String timestamp = String.valueOf(System.currentTimeMillis() / 1000);
+        String service = "consensus";
+        String host = "dataapi.investoday.net";
+        String canonicalUri = "/consensus/est-bsc";
+        String canonicalQueryString = "BeginDate=20180101&EndDate=20180131&IndId=0&SecCd=000001&Fields&OperType=0&Page=1&PageCount=1000&RptYr";
 
 
         String region = "ap-shenzhen";
@@ -64,7 +55,6 @@ public class TestPostmanDemo {
         String algorithm = "JC1-HMAC-SHA256";
         String contentType = "";
 
-//        String timestamp = String.valueOf(System.currentTimeMillis() / 1000);
         SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
         // 注意时区，否则容易出错
         sdf.setTimeZone(TimeZone.getTimeZone("UTC"));

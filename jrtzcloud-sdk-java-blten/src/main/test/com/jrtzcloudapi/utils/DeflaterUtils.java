@@ -1,4 +1,4 @@
-package com.jrtzcloudapi.common.utils;
+package com.jrtzcloudapi.utils;
 
 import java.io.*;
 import java.util.zip.DataFormatException;

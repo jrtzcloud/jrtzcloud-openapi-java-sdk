@@ -1,4 +1,4 @@
-package com.jrtzcloudapi.common.utils;
+package com.jrtzcloudapi.utils;
 
 import java.io.*;
 import java.util.zip.GZIPInputStream;
@@ -67,7 +67,7 @@ public class GZIPUtils {
             fop.flush();
             fop.close();
 
-            System.out.println("Done");
+//            System.out.println("Done");
 
         } catch (IOException e) {
             e.printStackTrace();

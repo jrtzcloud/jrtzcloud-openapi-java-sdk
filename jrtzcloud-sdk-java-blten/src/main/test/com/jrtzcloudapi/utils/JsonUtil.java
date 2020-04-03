@@ -1,4 +1,4 @@
-package com.jrtzcloudapi.common.utils;
+package com.jrtzcloudapi.utils;
 
 //import org.apache.logging.log4j.LogManager;
 //import org.apache.logging.log4j.Logger;
