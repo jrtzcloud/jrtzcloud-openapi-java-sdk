@@ -12,23 +12,23 @@ public class Patch extends AbstractModel {
     /**
      * 操作指令，仅支持 replace
      */
-    @SerializedName("op")
+    @SerializedName("Op")
     @Expose
-    private final String op = "replace";
+    private final String Op = "replace";
     /**
      * JSON实体需要修改的节点路径
      * JSON-Pointer path [RFC6901](https://tools.ietf.org/html/rfc6901) that references a location within the target document
      * (the "target location") where the operation is performed
      */
-    @SerializedName("path")
+    @SerializedName("Path")
     @Expose
-    private String path;
+    private String Path;
     /**
      * 修改值
      */
-    @SerializedName("value")
+    @SerializedName("Value")
     @Expose
-    private Object value;
+    private Object Value;
 
     /**
      *  封装Patch, path can not be empty
@@ -37,34 +37,34 @@ public class Patch extends AbstractModel {
      */
     public Patch(String path, Object value){
         if(StringUtils.isBlank(path)) throw new IllegalArgumentException("Path can not be empty to constructor");
-        this.path = path;
-        this.value = value;
+        this.Path = path;
+        this.Value = value;
     }
 
     @Override
     protected void toMap(HashMap<String, String> map, String prefix) {
-        this.setParamSimple(map, prefix + "op", this.op);
-        this.setParamSimple(map, prefix + "path", this.path);
-        this.setParamSimple(map, prefix + "value", this.value);
+        this.setParamSimple(map, prefix + "Op", this.Op);
+        this.setParamSimple(map, prefix + "Path", this.Path);
+        this.setParamSimple(map, prefix + "Value", this.Value);
     }
 
     public String getOp() {
-        return op;
+        return Op;
     }
 
     public String getPath() {
-        return path;
+        return Path;
     }
 
     public void setPath(String path) {
-        this.path = path;
+        Path = path;
     }
 
     public Object getValue() {
-        return value;
+        return Value;
     }
 
     public void setValue(Object value) {
-        this.value = value;
+        Value = value;
     }
 }

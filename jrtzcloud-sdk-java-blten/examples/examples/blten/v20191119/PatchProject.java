@@ -15,7 +15,7 @@ public class PatchProject {
             // 实例化一个认证对象，入参需要传入今日投资云账户secretId，secretKey
             Credential cred = new Credential(Constants.SECRET_ID, Constants.SECRET_KEY);
 
-            String projectId = "f863b416-06be-11ea-b4e9-000c2947adc4";
+            String projectId = "bd883110-795e-11ea-a022-b6e29aad7c9c";
 
             // 实例化一个http选项，可选的，没有特殊需求可以跳过
             HttpProfile httpProfile = new HttpProfile();
@@ -38,11 +38,11 @@ public class PatchProject {
             Float[] floats = new Float[2];
             floats[0] = 0f;
             floats[1] = 0.2f;
-            Patch patch1 = new Patch("/Model/BoundaryDict/ABS_RETURN", floats);
-            Patch patch2 = new Patch("/Model/ConstrainList/0/1", "(0.2 * ASHARE) - USSHARE");
-            Patch patch3 = new Patch("/StartDate","2019-09-01");
-            Patch patch4 = new Patch("/StopDate","2029-09-01");
-            req.setPatch(new Patch[]{patch1,patch2,patch3,patch4});
+//            Patch patch1 = new Patch("/Model/BoundaryDict/ABS_RETURN", floats);
+//            Patch patch2 = new Patch("/Model/ConstrainList/0/1", "(0.2 * ASHARE) - USSHARE");
+            Patch patch3 = new Patch("/StartDate","2020-03-09");
+            Patch patch4 = new Patch("/StopDate","2029-09-02");
+            req.setPatch(new Patch[]{patch3,patch4});
 
             // 这里还支持以标准json格式的string来赋值请求参数的方式。下面的代码跟上面的参数赋值是等效的
             String params = "{\"Patch\": [{\"op\": \"replace\", \"path\": \"/Model\", \"value\": {\"AssetList\": [\"ASHARE\", \"USSHARE\", \"HKSHARE\", \"ABS_RETURN\", \"OIL\", \"GOLD\", \"TREASURY\", \"CN_CREDIT\", \"GLOBAL_DEBT\", \"CASH\"], \"OriginalExpRtnDict\": {\"ASHARE\": 0.12, \"USSHARE\": 0.082, \"HKSHARE\": 0.082, \"ABS_RETURN\": 0.045, \"OIL\": 0.085, \"GOLD\": 0.06, \"CN_CREDIT\": 0.045, \"TREASURY\": 0.042, \"GLOBAL_DEBT\": 0.04, \"CASH\": 0.03}, \"BoundaryDict\": {\"ASHARE\": [0, 1.0], \"USSHARE\": [0, 1.0], \"HKSHARE\": [0, 1.0], \"ABS_RETURN\": [0, 0.1], \"OIL\": [0, 1.0], \"GOLD\": [0, 1.0], \"TREASURY\": [0.03, 1.0], \"CN_CREDIT\": [0, 1.0], \"GLOBAL_DEBT\": [0.0, 1.0], \"CASH\": [0.02, 1.0]}, \"ConstrainList\": [[\"ineq\", \"(0.3 * ASHARE) - USSHARE\"]]}}, {\"op\": \"replace\", \"path\": \"/StartDate\", \"value\": \"2019-09-01\"}, {\"op\": \"replace\", \"path\": \"/StopDate\", \"value\": \"2029-09-01\"}]}";
