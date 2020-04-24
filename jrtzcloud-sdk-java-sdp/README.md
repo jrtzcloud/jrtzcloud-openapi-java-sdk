@@ -1,10 +1,12 @@
+![](https://img.shields.io/maven-central/v/com.jrtzcloudapi/jrtzcloud-sdk-java?label=maven)
+
 # 简介
-欢迎使用今日投资云开发者工具套件（SDK）1.0，SDK1.0是云 API1.0 平台的配套工具。目前已经支持sdp、blten等产品，后续所有的云服务产品都会接入进来。新版SDK实现了统一化，具有各个语言版本的SDK使用方法相同，接口调用方式相同，统一的错误码和返回包格式这些优点。
+欢迎使用今日投资云开发者工具套件（SDK）3.0，SDK3.0是云 API3.0 平台的配套工具。目前已经支持cvm、vpc、cbs等产品，后续所有的云服务产品都会接入进来。新版SDK实现了统一化，具有各个语言版本的SDK使用方法相同，接口调用方式相同，统一的错误码和返回包格式这些优点。
 为方便 JAVA 开发者调试和接入今日投资云产品 API，这里向您介绍适用于 Java 的今日投资云开发工具包，并提供首次使用开发工具包的简单示例。让您快速获取今日投资云 Java SDK 并开始调用。
 # 依赖环境
 1.依赖环境：JDK 7 版本及以上。
 2.从 今日投资云控制台 开通相应产品。
-3.获取 SecretID、SecretKey 以及调用地址（endpoint），endpoint 一般形式为\*.investoday.net，如CVM 的调用地址为 blten.investoday.net，具体参考各产品说明。
+3.获取 SecretID、SecretKey 以及调用地址（endpoint），endpoint 一般形式为\*.jrtzcloudapi.com，如CVM 的调用地址为 cvm.jrtzcloudapi.com，具体参考各产品说明。
 
 # 获取安装
 安装 Java SDK 前，先获取安全凭证。在第一次使用云API之前，用户首先需要在今日投资云控制台上申请安全凭证，安全凭证包括 SecretID 和 SecretKey， SecretID 是用于标识 API 调用者的身份，SecretKey是用于加密签名字符串和服务器端验证签名字符串的密钥。SecretKey 必须严格保管，避免泄露。
@@ -18,7 +20,7 @@
     <artifactId>jrtzcloud-sdk-java</artifactId>
     <!-- go to https://search.maven.org/search?q=jrtzcloud-sdk-java and get the latest version. -->
     <!-- 请到https://search.maven.org/search?q=jrtzcloud-sdk-java查询最新版本 -->
-    <version>1.0.0</version>
+    <version>3.0.93</version>
 </dependency>
 ```
 3. 引用方法可参考示例。
@@ -29,6 +31,47 @@
 3. 需要将vendor目录下的jar包放在java的可找到的路径中。
 4. 引用方法可参考示例。
 
+# 示例
+以查询可用区接口为例:
+```java
+import com.jrtzcloudapi.common.Credential;
+import com.jrtzcloudapi.common.exception.JrtzCloudSDKException;
+import com.jrtzcloudapi.common.profile.ClientProfile;
+// 导入对应产品模块的client
+import com.jrtzcloudapi.cvm.v20170312.CvmClient;
+// 导入要请求接口对应的request response类
+import com.jrtzcloudapi.cvm.v20170312.models.DescribeZonesRequest;
+import com.jrtzcloudapi.cvm.v20170312.models.DescribeZonesResponse;
+
+public class DescribeZones
+{
+    public static void main(String [] args) {
+        try{
+            // 实例化一个认证对象，入参需要传入今日投资云账户secretId，secretKey
+            Credential cred = new Credential("secretId", "secretKey");
+            
+            // 实例化要请求产品(以cvm为例)的client对象
+            ClientProfile clientProfile = new ClientProfile();
+            clientProfile.setSignMethod(ClientProfile.SIGN_JC1_256);
+            CvmClient client = new CvmClient(cred, "ap-guangzhou", clientProfile);
+            
+            // 实例化一个请求对象
+            DescribeZonesRequest req = new DescribeZonesRequest();
+            
+            // 通过client对象调用想要访问的接口，需要传入请求对象
+            DescribeZonesResponse resp = client.DescribeZones(req);
+            
+            // 输出json格式的字符串回包
+            System.out.println(DescribeZonesRequest.toJsonString(resp));
+        } catch (JrtzCloudSDKException e) {
+                System.out.println(e.toString());
+        }
+
+    }
+    
+} 
+```
+
 ## 更多示例
 
 您可以在[github](https://github.com/jrtzcloud/jrtzcloud-sdk-java)中examples目录下找到更详细的示例。
@@ -37,7 +80,7 @@
 
 ## 代理
 
-指定代理访问(版本>=1.0.96)，目前仅支持 HTTP 代理：
+指定代理访问(版本>=3.0.96)，目前仅支持 HTTP 代理：
 
 ```
 HttpProfile httpProfile = new HttpProfile();
@@ -53,3 +96,13 @@ System.setProperty("https.proxyPort", "真实代理端口");
 ```
 
 或者运行程序时在启动参数中设置。
+
+# 旧版SDK
+我们推荐您使用新版SDK， 如果需要旧版SDK，请在您的Maven pom.xml 添加以下依赖项即可：
+```xml
+<dependency>
+<groupId>com.qcloud</groupId>
+<artifactId>qcloud-java-sdk</artifactId>
+<version>2.0.6</version>
+</dependency>
+```
