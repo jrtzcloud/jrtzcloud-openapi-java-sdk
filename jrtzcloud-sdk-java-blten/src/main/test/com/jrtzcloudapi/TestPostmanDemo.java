@@ -38,10 +38,10 @@ public class TestPostmanDemo {
     }
 
     public static void main(String[] args) throws Exception {
-        String httpRequestMethod = "GET";
+//        String httpRequestMethod = "GET";
 //        String httpRequestMethod = "POST";
 //        String httpRequestMethod = "PUT";
-//        String httpRequestMethod = "PATCH";
+        String httpRequestMethod = "PATCH";
 
         String service = "blten";
         String host = "blten.jrtzcloud.cn";
