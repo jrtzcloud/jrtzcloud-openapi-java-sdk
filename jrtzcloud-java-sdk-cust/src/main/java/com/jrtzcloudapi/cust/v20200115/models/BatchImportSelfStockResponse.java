@@ -10,17 +10,17 @@ public class BatchImportSelfStockResponse extends AbstractModel {
 
     @SerializedName("Data")
     @Expose
-    private String Data;
+    private Long Data;
 
     @SerializedName("RequestId")
     @Expose
     private String RequestId;
 
-    public String getData() {
+    public Long getData() {
         return Data;
     }
 
-    public void setData(String Data) {
+    public void setData(Long Data) {
         this.Data = Data;
     }
 

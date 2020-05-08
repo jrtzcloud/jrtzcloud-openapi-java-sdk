@@ -11,34 +11,11 @@ import java.util.List;
 public class BatchImportSelfStockRequest extends AbstractModel {
 
     /**
-     * 券商id
-     */
-    //@SerializedName("AppId")
-    //@Expose
-    //private String AppId;
-
-    /**
      * 用户自选股数组
      */
     @SerializedName("SelfStockLists")
     @Expose
     private List<SelfStockList> SelfStockLists;
-
-    /**
-     * Get 券商Id，今日投资分配给券商的id
-     * @return 券商Id，今日投资分配给券商的id
-     */
-    //public String getAppId() {
-    //    return AppId;
-    //}
-
-    /**
-     * Set 券商Id，今日投资分配给券商的id
-     * @param AppId 券商Id，今日投资分配给券商的id
-     */
-    //public void setAppId(String AppId) {
-    //    this.AppId = AppId;
-    //}
 
     /**
      * Get 用户自选股数组
@@ -58,7 +35,6 @@ public class BatchImportSelfStockRequest extends AbstractModel {
 
     @Override
     protected void toMap(HashMap<String, String> map, String prefix) {
-        //this.setParamSimple(map, prefix + "AppId", this.AppId);
         this.setParamSimple(map, prefix + "SelfStockLists", this.SelfStockLists);
     }
 }
