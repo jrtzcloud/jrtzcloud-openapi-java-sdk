@@ -1,7 +1,5 @@
 package com.jrtzcloudapi.common.utils;
 
-import com.jrtzcloudapi.common.utils.CharSequenceUtils;
-
 import java.util.ArrayList;
 import java.util.List;
 
@@ -213,7 +211,7 @@ public class StringUtils {
 
         final int separatorLength = separator.length();
 
-        final ArrayList<String> substrings = new ArrayList<>();
+        final ArrayList<String> substrings = new ArrayList<String>();
         int numberOfSubstrings = 0;
         int beg = 0;
         int end = 0;
@@ -272,7 +270,7 @@ public class StringUtils {
         if (len == 0) {
             return EMPTY_STRING_ARRAY;
         }
-        final List<String> list = new ArrayList<>();
+        final List<String> list = new ArrayList<String>();
         int sizePlus1 = 1;
         int i = 0, start = 0;
         boolean match = false;

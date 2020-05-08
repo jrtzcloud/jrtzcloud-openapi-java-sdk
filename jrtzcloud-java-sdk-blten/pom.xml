@@ -1,12 +1,12 @@
 <?xml version="1.0"?>
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
   <modelVersion>4.0.0</modelVersion>
-  <groupId>com.jrtzcloudapi</groupId>
-  <artifactId>jrtzcloud-sdk-java-blten</artifactId>
+  <groupId>com.jrtzcloud</groupId>
+  <artifactId>jrtzcloud-java-sdk-blten</artifactId>
   <version>1.0.1-SNAPSHOT</version>
   <packaging>jar</packaging>
-  <name>jrtzcloud-sdk-java-blten</name>
-  <url>https://help.investoday.net/</url>
+  <name>jrtzcloud-java-sdk-blten</name>
+  <url>https://help.test.investoday.net/</url>
   <description>Jrtz Cloud Open API SDK for Java Blten</description>
 
   <dependencies>
@@ -66,7 +66,7 @@
       <name>Apache License, Version 2.0</name>
       <url>http://www.apache.org/licenses/LICENSE-2.0</url>
       <distribution>repo</distribution>
-      <comments>Jrtzcloudapi java sdk blten</comments>
+      <comments>Jrtzcloud api java sdk blten</comments>
     </license>
   </licenses>
   <distributionManagement>

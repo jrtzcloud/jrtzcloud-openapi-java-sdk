@@ -1,4 +1,4 @@
-package examples.sdp.v20200115;
+package examples.cust.v20200115;
 
 // 导入对应产品模块的client
 
@@ -8,15 +8,15 @@ import com.jrtzcloudapi.common.Credential;
 import com.jrtzcloudapi.common.exception.JrtzCloudSDKException;
 import com.jrtzcloudapi.common.profile.ClientProfile;
 import com.jrtzcloudapi.common.profile.HttpProfile;
-import com.jrtzcloudapi.sdp.v20200115.SdpClient;
-import com.jrtzcloudapi.sdp.v20200115.models.SelfStockList;
-import com.jrtzcloudapi.sdp.v20200115.models.BulkImportSelfStockRequest;
-import com.jrtzcloudapi.sdp.v20200115.models.BulkImportSelfStockResponse;
+import com.jrtzcloudapi.cust.v20200115.CustClient;
+import com.jrtzcloudapi.cust.v20200115.models.BatchImportSelfStockRequest;
+import com.jrtzcloudapi.cust.v20200115.models.BatchImportSelfStockResponse;
+import com.jrtzcloudapi.cust.v20200115.models.entity.SelfStockList;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class BulkImportSelfStock {
+public class BatchImportSelfStock {
 
     /**
      * Signature Version 1
@@ -25,7 +25,7 @@ public class BulkImportSelfStock {
 
     public static final String REGION = "ap-shenzhen";
 
-    public static final String PATH = "/sdp-cust/externalCall/bulkImportSelfStock";
+    public static final String PATH = "/cust/customers/self-stocks";
 
     public static void main(String[] args) {
         try {
@@ -34,17 +34,17 @@ public class BulkImportSelfStock {
 
             // 实例化一个http选项，可选的，没有特殊需求可以跳过
             HttpProfile httpProfile = new HttpProfile();
-//            httpProfile.setReqMethod("GET"); // get请求(默认为post请求)
+            //httpProfile.setReqMethod("GET"); // get请求(默认为post请求)
             httpProfile.setConnTimeout(30); // 请求连接超时时间，单位为秒(默认60秒)
-            httpProfile.setEndpoint("sdp.test.investoday.net"); // 指定接入地域域名(默认就近接入)
+            httpProfile.setEndpoint("lyzt.dev.investoday.net"); // 指定接入地域域名(默认就近接入)
 
             // 实例化一个client选项，可选的，没有特殊需求可以跳过
             ClientProfile clientProfile = new ClientProfile();
             clientProfile.setSignMethod(SIGN_JC1_256); // 指定签名算法(默认为HmacSHA256)
             clientProfile.setHttpProfile(httpProfile);
 
-            // 实例化要请求产品(以blten为例)的client对象,clientProfile是可选的
-            SdpClient client = new SdpClient(cred, REGION, clientProfile, PATH);
+            // 实例化要请求产品(以cust为例)的client对象,clientProfile是可选的
+            CustClient client = new CustClient(cred, REGION, clientProfile, PATH);
 
             //入参：1、添加多只股票
             List<String> stockList = new ArrayList<String>();
@@ -60,27 +60,25 @@ public class BulkImportSelfStock {
             userSelfStock2.setAccountId("10123");//用户2
             userSelfStock2.setStockCode(stockList);
 
-            //入参：2、添加多个C端用户
             List<SelfStockList> selfStockList = new ArrayList<SelfStockList>();
-            selfStockList.add(userSelfStock);//添加第一个用户
-            selfStockList.add(userSelfStock2);//添加第二个用户
+            selfStockList.add(userSelfStock);//添加第1个用户
+            selfStockList.add(userSelfStock2);//添加第2个用户
+
             //。。。。。。 添加第N个用户
 
-            // 实例化一个sdpclient实例信息查询请求对象,每个接口都会对应一个request对象。
-            BulkImportSelfStockRequest req = new BulkImportSelfStockRequest();
+            // 实例化一个cust client实例信息查询请求对象,每个接口都会对应一个request对象。
+            BatchImportSelfStockRequest req = new BatchImportSelfStockRequest();
 
             // 填充请求参数,这里request对象的成员变量即对应接口的入参
             req.setSelfStockLists(selfStockList);
-            req.setAppId("001");
+            //req.setAppId("001");
 
             // 通过client对象调用DescribeAssetAllocationParam方法发起请求。注意请求方法名与请求对象是对应的
             // 返回的resp是一个DescribeAssetAllocationParamResponse类的实例，与请求对象对应
-            BulkImportSelfStockResponse resp = client.BulkImportSelfStock(req);
-
-            System.out.println("\n");
+            BatchImportSelfStockResponse resp = client.BatchImportSelfStock(req);
 
             // 输出json格式的字符串回包
-            System.out.println(BulkImportSelfStockResponse.toJsonString(resp));
+            System.out.println("SUCCESS==>\n" + BatchImportSelfStockResponse.toJsonString(resp));
 
             // 也可以取出单个值。
             // 你可以通过官网接口文档或跳转到response对象的定义处查看返回字段的定义

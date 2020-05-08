@@ -1,20 +1,21 @@
-package com.jrtzcloudapi.sdp.v20200115.models;
+package com.jrtzcloudapi.cust.v20200115.models;
 
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 import com.jrtzcloudapi.common.AbstractModel;
+import com.jrtzcloudapi.cust.v20200115.models.entity.SelfStockList;
 
 import java.util.HashMap;
 import java.util.List;
 
-public class BulkImportSelfStockRequest extends AbstractModel {
+public class BatchImportSelfStockRequest extends AbstractModel {
 
     /**
      * 券商id
      */
-    @SerializedName("AppId")
-    @Expose
-    private String AppId;
+    //@SerializedName("AppId")
+    //@Expose
+    //private String AppId;
 
     /**
      * 用户自选股数组
@@ -27,17 +28,17 @@ public class BulkImportSelfStockRequest extends AbstractModel {
      * Get 券商Id，今日投资分配给券商的id
      * @return 券商Id，今日投资分配给券商的id
      */
-    public String getAppId() {
-        return AppId;
-    }
+    //public String getAppId() {
+    //    return AppId;
+    //}
 
     /**
      * Set 券商Id，今日投资分配给券商的id
      * @param AppId 券商Id，今日投资分配给券商的id
      */
-    public void setAppId(String AppId) {
-        this.AppId = AppId;
-    }
+    //public void setAppId(String AppId) {
+    //    this.AppId = AppId;
+    //}
 
     /**
      * Get 用户自选股数组
@@ -57,7 +58,7 @@ public class BulkImportSelfStockRequest extends AbstractModel {
 
     @Override
     protected void toMap(HashMap<String, String> map, String prefix) {
-        this.setParamSimple(map, prefix + "AppId", this.AppId);
+        //this.setParamSimple(map, prefix + "AppId", this.AppId);
         this.setParamSimple(map, prefix + "SelfStockLists", this.SelfStockLists);
     }
 }

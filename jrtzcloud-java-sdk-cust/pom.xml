@@ -2,18 +2,18 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
   <modelVersion>4.0.0</modelVersion>
   <groupId>com.jrtzcloudapi</groupId>
-  <artifactId>jrtzcloud-sdk-java-sdp</artifactId>
+  <artifactId>jrtzcloud-java-sdk-cust</artifactId>
   <version>1.0.0-SNAPSHOT</version>
   <packaging>jar</packaging>
-  <name>jrtzcloud-sdk-java-sdp</name>
+  <name>jrtzcloud-java-sdk-cust</name>
   <url>https://help.investoday.net/</url>
-  <description>Jrtz Cloud Open API SDK for Java Sdp</description>
+  <description>Jrtz Cloud Open API SDK for Java Custom</description>
 
   <dependencies>
     <dependency>
-      <groupId>com.jrtzcloudapi</groupId>
-      <artifactId>jrtzcloud-sdk-java-core</artifactId>
-      <version>1.0.0-SNAPSHOT</version>
+      <groupId>com.jrtzcloud</groupId>
+      <artifactId>jrtzcloud-java-sdk-core</artifactId>
+      <version>1.0.1</version>
     </dependency>
   </dependencies>
 
@@ -66,7 +66,7 @@
       <name>Apache License, Version 2.0</name>
       <url>http://www.apache.org/licenses/LICENSE-2.0</url>
       <distribution>repo</distribution>
-      <comments>Jrtzcloudapi java sdk sdp</comments>
+      <comments>Jrtzcloudapi java sdk custom</comments>
     </license>
   </licenses>
   <distributionManagement>

@@ -35,9 +35,9 @@
 # 示例
 以查询可用区接口为例:
 ```java
-import com.jrtzcloudapi.common.Credential;
-import com.jrtzcloudapi.common.exception.JrtzCloudSDKException;
-import com.jrtzcloudapi.common.profile.ClientProfile;
+import Credential;
+import JrtzCloudSDKException;
+import ClientProfile;
 // 导入对应产品模块的client
 import com.jrtzcloudapi.cvm.v20170312.CvmClient;
 // 导入要请求接口对应的request response类
