@@ -59,4 +59,5 @@ public class CreateProjectRequest extends AbstractModel {
     public void setStopDate(String stopDate) {
         StopDate = stopDate;
     }
+
 }

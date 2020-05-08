@@ -16,8 +16,6 @@ public class ReplaceProject {
             // 实例化一个认证对象，入参需要传入今日投资云账户secretId，secretKey
             Credential cred = new Credential(Constants.SECRET_ID, Constants.SECRET_KEY);
 
-            String projectId = "f863b416-06be-11ea-b4e9-000c2947adc4";
-
             // 实例化一个http选项，可选的，没有特殊需求可以跳过
             HttpProfile httpProfile = new HttpProfile();
             httpProfile.setReqMethod(HttpProfile.REQ_PUT); // (默认为POST请求)
@@ -29,13 +27,14 @@ public class ReplaceProject {
             clientProfile.setHttpProfile(httpProfile);
 
             // 实例化要请求产品(以blten为例)的client对象,clientProfile是可选的
-            BltenClient client = new BltenClient(cred, "ap-shenzhen", clientProfile, "/blten/projects/" + projectId);
+            BltenClient client = new BltenClient(cred, clientProfile);
 
             // 实例化一个cvm实例信息查询请求对象,每个接口都会对应一个request对象。
             ReplaceProjectRequest req = new ReplaceProjectRequest();
 
             // 填充请求参数,这里request对象的成员变量即对应接口的入参
             // 你可以通过官网接口文档或跳转到request对象的定义处查看请求参数的定义
+
             Model model = new Model();
             OriginalExpRtnDict originalExpRtnDict = new OriginalExpRtnDict();
             model.setOriginalExpRtnDict(originalExpRtnDict);
@@ -46,7 +45,7 @@ public class ReplaceProject {
             // 这里还支持以标准json格式的string来赋值请求参数的方式。下面的代码跟上面的参数赋值是等效的
             String params = "{\"Model\": {\"AssetList\": [\"ASHARE\", \"USSHARE\", \"HKSHARE\", \"ABS_RETURN\", \"OIL\", \"GOLD\", \"TREASURY\", \"CN_CREDIT\", \"GLOBAL_DEBT\", \"CASH\"], \"OriginalExpRtnDict\": {\"ASHARE\": 0.12, \"USSHARE\": 0.082, \"HKSHARE\": 0.082, \"ABS_RETURN\": 0.045, \"OIL\": 0.085, \"GOLD\": 0.06, \"CN_CREDIT\": 0.045, \"TREASURY\": 0.042, \"GLOBAL_DEBT\": 0.04, \"CASH\": 0.03}, \"BoundaryDict\": {\"ASHARE\": [0, 1.0], \"USSHARE\": [0, 1.0], \"HKSHARE\": [0, 1.0], \"ABS_RETURN\": [0, 0.1], \"OIL\": [0, 1.0], \"GOLD\": [0, 1.0], \"TREASURY\": [0.03, 1.0], \"CN_CREDIT\": [0, 1.0], \"GLOBAL_DEBT\": [0.0, 1.0], \"CASH\": [0.02, 1.0]}, \"ConstrainList\": [[\"ineq\", \"(0.3 * ASHARE) - USSHARE\"]]}, \"StartDate\": \"2019-10-01\", \"StopDate\": \"2019-11-12\"}";
             req = ReplaceProjectRequest.fromJsonString(params, ReplaceProjectRequest.class);
-
+            req.setProjectId(Constants.PROJECT_ID);
             /**
              * 通过client对象调用 ReplaceProject 方法发起请求。注意请求方法名与请求对象是对应的
              * 返回的resp是一个 ProjectResponse 类的实例，与请求对象对应

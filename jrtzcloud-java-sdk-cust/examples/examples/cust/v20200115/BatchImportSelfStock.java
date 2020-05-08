@@ -21,12 +21,13 @@ public class BatchImportSelfStock {
     public static void main(String[] args) {
         try {
             // 实例化一个认证对象，入参需要传入今日投资云账户secretId，secretKey
-            Credential cred = new Credential(Constants.SECRET_ID, Constants.SECRET_KEY);
+//            Credential cred = new Credential(Constants.SECRET_ID, Constants.SECRET_KEY);
+            Credential cred = new Credential("04qquIswFv6GskjwLS1vsABdyePIwxI7", "uiCBZEjYuK8XhTk9bjYdx73h3ZZsa1wy");
 
             // 实例化一个http选项，可选的，没有特殊需求可以跳过
             HttpProfile httpProfile = new HttpProfile();
             httpProfile.setConnTimeout(30); // 请求连接超时时间，单位为秒(默认60秒)
-            httpProfile.setEndpoint("lyzt.dev.investoday.net"); // 指定接入地域域名(默认就近接入)
+            httpProfile.setEndpoint("lyzt.test.investoday.net"); // 指定接入地域域名(默认就近接入)
 
             // 实例化一个client选项，可选的，没有特殊需求可以跳过
             ClientProfile clientProfile = new ClientProfile();

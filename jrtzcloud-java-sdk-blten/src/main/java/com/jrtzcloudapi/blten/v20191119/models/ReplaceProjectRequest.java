@@ -9,6 +9,12 @@ import java.util.HashMap;
 
 public class ReplaceProjectRequest extends AbstractModel {
     /**
+     * 模型ID
+     */
+    @SerializedName("ProjectId")
+    @Expose
+    private String ProjectId;
+    /**
      * 用户自定义模型
      */
     @SerializedName("Model")
@@ -57,5 +63,13 @@ public class ReplaceProjectRequest extends AbstractModel {
 
     public void setStopDate(String stopDate) {
         StopDate = stopDate;
+    }
+
+    public String getProjectId() {
+        return ProjectId;
+    }
+
+    public void setProjectId(String projectId) {
+        ProjectId = projectId;
     }
 }

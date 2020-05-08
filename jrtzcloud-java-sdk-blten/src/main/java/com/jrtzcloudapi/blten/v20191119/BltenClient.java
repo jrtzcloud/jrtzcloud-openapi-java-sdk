@@ -29,14 +29,35 @@ public class BltenClient extends AbstractClient {
     private static String endpoint = "blten.jrtzcloud.cn";
     private static String version = "2019-11-19";
 
+    private static final String DEFAULT_REGION = "ap-shenzhen";
+    private static final String CREATE_PROJECT_PATH = "/blten/projects";
+    private static final String DESCRIBE_MODEL_DATA_PATH = "/blten/model-data/projects/";
+    private static final String PROJECT_ID_PATH= "/blten/projects/";
 
+
+    /**
+     * 构造client
+     * @param credential 认证信息实例
+     */
+    public BltenClient(Credential credential) {
+        this(credential, DEFAULT_REGION, new ClientProfile());
+    }
     /**
      * 构造client
      * @param credential 认证信息实例
      * @param region	产品地域
      */
-    public BltenClient(Credential credential, String region, String path) {
-        this(credential, region, new ClientProfile(), path);
+    public BltenClient(Credential credential, String region) {
+        this(credential, region, new ClientProfile());
+    }
+
+    /**
+     * 构造client
+     * @param credential 认证信息实例
+     * @param profile 配置实例
+     */
+    public BltenClient(Credential credential, ClientProfile profile) {
+        super(BltenClient.endpoint, BltenClient.version, credential, DEFAULT_REGION, profile);
     }
 
     /**
@@ -45,8 +66,8 @@ public class BltenClient extends AbstractClient {
      * @param region	产品地域
      * @param profile 配置实例
      */
-    public BltenClient(Credential credential, String region, ClientProfile profile, String path) {
-        super(BltenClient.endpoint, BltenClient.version, credential, region, profile,  path);
+    public BltenClient(Credential credential, String region, ClientProfile profile) {
+        super(BltenClient.endpoint, BltenClient.version, credential, region, profile);
     }
     /**
      * 查询模型数据
@@ -55,7 +76,7 @@ public class BltenClient extends AbstractClient {
         DescribeModelDataResponse rsp = null;
         try {
             Type type = new TypeToken<DescribeModelDataResponse>(){}.getType();
-            rsp  = gson.fromJson(this.internalRequest(req, "DescribeModelData"), type);
+            rsp  = gson.fromJson(this.internalRequest(req, "DescribeModelData", DESCRIBE_MODEL_DATA_PATH + req.getProjectId()), type);
         } catch (JsonSyntaxException e) {
             throw new JrtzCloudSDKException(e.getMessage());
         }
@@ -64,11 +85,11 @@ public class BltenClient extends AbstractClient {
     /**
      * 根据 ProjectId 查询用户自定义模型
      */
-    public ProjectResponse DescribeProject() throws JrtzCloudSDKException {
+    public ProjectResponse DescribeProject(DescribeProjectRequest req) throws JrtzCloudSDKException {
         ProjectResponse rsp = null;
         try {
             Type type = new TypeToken<ProjectResponse>(){}.getType();
-            rsp  = gson.fromJson(this.internalGetRequest("DescribeProject"), type);
+            rsp  = gson.fromJson(this.internalGetRequest("DescribeProject", PROJECT_ID_PATH + req.getProjectId()), type);
         } catch (JsonSyntaxException e) {
             throw new JrtzCloudSDKException(e.getMessage());
         }
@@ -81,7 +102,7 @@ public class BltenClient extends AbstractClient {
         ProjectResponse rsp = null;
         try {
             Type type = new TypeToken<ProjectResponse>(){}.getType();
-            rsp  = gson.fromJson(this.internalRequest(req, "CreateProject"), type);
+            rsp  = gson.fromJson(this.internalRequest(req, "CreateProject", CREATE_PROJECT_PATH), type);
         } catch (JsonSyntaxException e) {
             throw new JrtzCloudSDKException(e.getMessage());
         }
@@ -94,7 +115,7 @@ public class BltenClient extends AbstractClient {
         ProjectResponse rsp = null;
         try {
             Type type = new TypeToken<ProjectResponse>(){}.getType();
-            rsp  = gson.fromJson(this.internalRequest(req, "ReplaceProject"), type);
+            rsp  = gson.fromJson(this.internalRequest(req, "ReplaceProject", PROJECT_ID_PATH + req.getProjectId()), type);
         } catch (JsonSyntaxException e) {
             throw new JrtzCloudSDKException(e.getMessage());
         }
@@ -107,7 +128,7 @@ public class BltenClient extends AbstractClient {
         ProjectResponse rsp = null;
         try {
             Type type = new TypeToken<ProjectResponse>(){}.getType();
-            rsp  = gson.fromJson(this.internalRequest(req, "PatchProject"), type);
+            rsp  = gson.fromJson(this.internalRequest(req, "PatchProject", PROJECT_ID_PATH + req.getProjectId()), type);
         } catch (JsonSyntaxException e) {
             throw new JrtzCloudSDKException(e.getMessage());
         }

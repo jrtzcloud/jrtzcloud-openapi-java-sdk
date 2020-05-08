@@ -9,6 +9,13 @@ import java.util.HashMap;
 
 public class PatchProjectRequest extends AbstractModel {
     /**
+     * 模型ID
+     */
+    @SerializedName("ProjectId")
+    @Expose
+    private String ProjectId;
+
+    /**
      * 修改补丁实体，参考 JSON Patch [RFC6902]
      */
     @SerializedName("Patch")
@@ -26,5 +33,14 @@ public class PatchProjectRequest extends AbstractModel {
 
     public void setPatch(Patch[] patch) {
         Patch = patch;
+    }
+
+
+    public String getProjectId() {
+        return ProjectId;
+    }
+
+    public void setProjectId(String projectId) {
+        ProjectId = projectId;
     }
 }

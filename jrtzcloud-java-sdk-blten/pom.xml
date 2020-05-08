@@ -11,9 +11,9 @@
 
   <dependencies>
     <dependency>
-      <groupId>com.jrtzcloudapi</groupId>
-      <artifactId>jrtzcloud-sdk-java-core</artifactId>
-      <version>1.0.0</version>
+      <groupId>com.jrtzcloud</groupId>
+      <artifactId>jrtzcloud-java-sdk-core</artifactId>
+      <version>1.0.2</version>
     </dependency>
   </dependencies>
 

@@ -8,8 +8,16 @@ import java.util.HashMap;
 
 public class DescribeModelDataRequest extends AbstractModel {
     /**
+     * 模型ID
+     */
+    @SerializedName("ProjectId")
+    @Expose
+    private String ProjectId;
+    /**
      * 模型风险等级，整数且取值为[1,20]
      */
+    @SerializedName("RiskN")
+    @Expose
     private Integer RiskN;
     /**
      * 开始日期，格式yyyy-MM-dd
@@ -53,5 +61,13 @@ public class DescribeModelDataRequest extends AbstractModel {
 
     public void setEndDate(String endDate) {
         EndDate = endDate;
+    }
+
+    public String getProjectId() {
+        return ProjectId;
+    }
+
+    public void setProjectId(String projectId) {
+        ProjectId = projectId;
     }
 }

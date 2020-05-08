@@ -27,7 +27,7 @@ public class CreateProject {
             clientProfile.setHttpProfile(httpProfile);
 
             // 实例化要请求产品(以blten为例)的client对象,clientProfile是可选的
-            BltenClient client = new BltenClient(cred, "ap-shenzhen", clientProfile, "/blten/projects");
+            BltenClient client = new BltenClient(cred, clientProfile);
 
             // 实例化一个cvm实例信息查询请求对象,每个接口都会对应一个request对象。
             CreateProjectRequest req = new CreateProjectRequest();
@@ -45,10 +45,8 @@ public class CreateProject {
             String params = "{\"Model\": {\"AssetList\": [\"ASHARE\", \"USSHARE\", \"HKSHARE\", \"ABS_RETURN\", \"OIL\", \"GOLD\", \"TREASURY\", \"CN_CREDIT\", \"GLOBAL_DEBT\", \"CASH\"], \"OriginalExpRtnDict\": {\"ASHARE\": 0.12, \"USSHARE\": 0.082, \"HKSHARE\": 0.082, \"ABS_RETURN\": 0.045, \"OIL\": 0.085, \"GOLD\": 0.06, \"CN_CREDIT\": 0.045, \"TREASURY\": 0.042, \"GLOBAL_DEBT\": 0.04, \"CASH\": 0.03}, \"BoundaryDict\": {\"ASHARE\": [0, 1.0], \"USSHARE\": [0, 1.0], \"HKSHARE\": [0, 1.0], \"ABS_RETURN\": [0, 0.1], \"OIL\": [0, 1.0], \"GOLD\": [0, 1.0], \"TREASURY\": [0.03, 1.0], \"CN_CREDIT\": [0, 1.0], \"GLOBAL_DEBT\": [0.0, 1.0], \"CASH\": [0.02, 1.0]}, \"ConstrainList\": [[\"ineq\", \"(0.3 * ASHARE) - USSHARE\"]]}, \"StartDate\": \"2019-10-01\", \"StopDate\": \"2019-11-11\"}";
             req = CreateProjectRequest.fromJsonString(params, CreateProjectRequest.class);
 
-            /**
-             * 通过client对象调用 CreateProject 方法发起请求。注意请求方法名与请求对象是对应的
-             * 返回的resp是一个 ProjectResponse 类的实例，与请求对象对应
-             */
+            // 通过client对象调用 CreateProject 方法发起请求。注意请求方法名与请求对象是对应的
+            // 返回的resp是一个 ProjectResponse 类的实例，与请求对象对应
             ProjectResponse resp = client.CreateProject(req);
 
             // 输出json格式的字符串回包

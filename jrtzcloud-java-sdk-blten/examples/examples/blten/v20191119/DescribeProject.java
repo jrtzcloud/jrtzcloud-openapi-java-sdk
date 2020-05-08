@@ -1,6 +1,8 @@
 package examples.blten.v20191119;
 
 import com.jrtzcloudapi.blten.v20191119.BltenClient;
+import com.jrtzcloudapi.blten.v20191119.models.DescribeProjectRequest;
+import com.jrtzcloudapi.blten.v20191119.models.PatchProjectRequest;
 import com.jrtzcloudapi.blten.v20191119.models.ProjectResponse;
 import com.jrtzcloudapi.common.Credential;
 import com.jrtzcloudapi.common.exception.JrtzCloudSDKException;
@@ -26,13 +28,16 @@ public class DescribeProject {
             clientProfile.setHttpProfile(httpProfile);
 
             // 实例化要请求产品(以blten为例)的client对象,clientProfile是可选的
-            BltenClient client = new BltenClient(cred, "ap-shenzhen", clientProfile, "/blten/projects/" + projectId);
+            BltenClient client = new BltenClient(cred, clientProfile);
 
+            // 实例化一个cvm实例信息查询请求对象,每个接口都会对应一个request对象。
+            DescribeProjectRequest req = new DescribeProjectRequest();
+            req.setProjectId(Constants.PROJECT_ID);
             /**
              * 通过client对象调用 DescribeProject 方法发起请求。注意请求方法名与请求对象是对应的
              * 返回的resp是一个 ProjectResponse 类的实例，与请求对象对应
              */
-            ProjectResponse resp = client.DescribeProject();
+            ProjectResponse resp = client.DescribeProject(req);
 
             // 输出json格式的字符串回包
             System.out.println("SUCCESS==>\n" + ProjectResponse.toJsonString(resp));

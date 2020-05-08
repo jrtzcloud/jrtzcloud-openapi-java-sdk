@@ -15,8 +15,6 @@ public class DescribeModelData {
             // 实例化一个认证对象，入参需要传入今日投资云账户secretId，secretKey
             Credential cred = new Credential(Constants.SECRET_ID, Constants.SECRET_KEY);
 
-            String projectId = "4987324e-577a-11ea-a43a-c60aaec77637";
-
             // 实例化一个http选项，可选的，没有特殊需求可以跳过
             HttpProfile httpProfile = new HttpProfile();
             httpProfile.setReqMethod(HttpProfile.REQ_GET); // (默认为POST请求)
@@ -28,16 +26,22 @@ public class DescribeModelData {
             clientProfile.setHttpProfile(httpProfile);
 
             // 实例化要请求产品(以blten为例)的client对象,clientProfile是可选的
-            BltenClient client = new BltenClient(cred, "ap-shenzhen", clientProfile, "/blten/model-data/projects/" + projectId);
+            BltenClient client = new BltenClient(cred, clientProfile);
 
             // 实例化一个cvm实例信息查询请求对象,每个接口都会对应一个request对象。
             DescribeModelDataRequest req = new DescribeModelDataRequest();
 
             // 填充请求参数,这里request对象的成员变量即对应接口的入参
             // 你可以通过官网接口文档或跳转到request对象的定义处查看请求参数的定义
+            req.setProjectId(Constants.PROJECT_ID);
             req.setStartDate("1919-08-22");
             req.setEndDate("2030-02-22");
             req.setRiskN(1);
+
+            // 这里还支持以标准json格式的string来赋值请求参数的方式。下面的代码跟上面的参数赋值是等效的
+            String params = "{\"RiskN\":1,\"StartDate\":\"1919-08-22\",\"EndDate\":\"2030-02-22\"}";
+            req = DescribeModelDataRequest.fromJsonString(params, DescribeModelDataRequest.class);
+            req.setProjectId(Constants.PROJECT_ID);
 
             /**
              * 通过client对象调用 DescribeModelData 方法发起请求。注意请求方法名与请求对象是对应的
