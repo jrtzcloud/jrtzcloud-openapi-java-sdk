@@ -60,12 +60,9 @@ public class BatchImportSelfStock {
 
             // 填充请求参数,这里request对象的成员变量即对应接口的入参
             req.setSelfStockLists(selfStockList);
-            //req.setAppId("001");
 
-            /**
-             * 通过client对象调用 BatchImportSelfStock 方法发起请求。注意请求方法名与请求对象是对应的
-             * 返回的resp是一个 BatchImportSelfStockResponse 类的实例，与请求对象对应
-             */
+            //通过client对象调用 BatchImportSelfStock 方法发起请求。注意请求方法名与请求对象是对应的
+            //返回的resp是一个 BatchImportSelfStockResponse 类的实例，与请求对象对应
             BatchImportSelfStockResponse resp = client.BatchImportSelfStock(req);
 
             // 输出json格式的字符串回包
