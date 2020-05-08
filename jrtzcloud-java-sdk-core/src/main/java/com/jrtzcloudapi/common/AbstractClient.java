@@ -56,23 +56,22 @@ abstract public class AbstractClient {
     private ClientProfile profile;
     private String endpoint;
     private String region;
-    private String path;
+    private String path = "/";
     private String sdkVersion;
     private String apiVersion;
     public Gson gson;
 
-    public AbstractClient(String endpoint, String version, Credential credential, String region, String path) {
-        this(endpoint, version, credential, region, new ClientProfile(), path);
+    public AbstractClient(String endpoint, String version, Credential credential, String region) {
+        this(endpoint, version, credential, region, new ClientProfile());
     }
 
     public AbstractClient(String endpoint, String version, Credential credential, String region,
-                          ClientProfile profile, String path) {
+                          ClientProfile profile) {
 
         this.credential = credential;
         this.profile = profile;
         this.endpoint = endpoint;
         this.region = region;
-        this.path = path;
         this.sdkVersion = AbstractClient.SDK_VERSION;
         this.apiVersion = version;
         this.gson = new GsonBuilder().excludeFieldsWithoutExposeAnnotation().create();
@@ -171,7 +170,8 @@ abstract public class AbstractClient {
      * @return
      * @throws JrtzCloudSDKException
      */
-    protected String internalGetRequest(String actionName) throws JrtzCloudSDKException {
+    protected String internalGetRequest(String actionName, String path) throws JrtzCloudSDKException {
+        this.path = path;
         Response okRsp = null;
         String endpoint = this.endpoint;
         if (!(this.profile.getHttpProfile().getEndpoint() == null)) {
@@ -192,7 +192,8 @@ abstract public class AbstractClient {
         return this.readResponse(okRsp);
     }
 
-    protected String internalRequest(AbstractModel request, String actionName) throws JrtzCloudSDKException {
+    protected String internalRequest(AbstractModel request, String actionName, String path) throws JrtzCloudSDKException {
+        this.path = path;
         Response okRsp = null;
         String endpoint = this.endpoint;
         if (!(this.profile.getHttpProfile().getEndpoint() == null)) {
