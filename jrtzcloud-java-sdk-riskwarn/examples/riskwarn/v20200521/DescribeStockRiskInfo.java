@@ -8,13 +8,6 @@ import com.jrtzcloudapi.riskwarn.v20200521.RiskWarnClient;
 import com.jrtzcloudapi.riskwarn.v20200521.models.DescribeStockRiskInfoRequest;
 import com.jrtzcloudapi.riskwarn.v20200521.models.DescribeStockRiskInfoResponse;
 
-/**
- * @Author Drx
- * @Date 2020/5/19
- * @Description
- * @Email hjx8862825@hotmail.com
- * PS: Please tell me if you find any bugs ^_^
- **/
 public class DescribeStockRiskInfo {
 
     public static void main(String[] args) {
@@ -35,7 +28,7 @@ public class DescribeStockRiskInfo {
             // 实例化要请求产品的client对象,clientProfile是可选的
             RiskWarnClient client = new RiskWarnClient(cred, clientProfile);
 
-            // 实例化一个sdpclient实例信息查询请求对象,每个接口都会对应一个request对象。
+            // 实例化一个client实例信息查询请求对象,每个接口都会对应一个request对象。
             DescribeStockRiskInfoRequest req = new DescribeStockRiskInfoRequest();
 
             // 填充请求参数,这里request对象的成员变量即对应接口的入参
@@ -54,6 +47,4 @@ public class DescribeStockRiskInfo {
             System.out.println(e.toString());
         }
     }
-
-
 }
