@@ -6,8 +6,8 @@ import com.jrtzcloudapi.common.AbstractClient;
 import com.jrtzcloudapi.common.Credential;
 import com.jrtzcloudapi.common.exception.JrtzCloudSDKException;
 import com.jrtzcloudapi.common.profile.ClientProfile;
-import com.jrtzcloudapi.riskwarn.v20200521.models.StockRiskInfoRequest;
-import com.jrtzcloudapi.riskwarn.v20200521.models.StockRiskInfoResponse;
+import com.jrtzcloudapi.riskwarn.v20200521.models.DescribeStockRiskInfoRequest;
+import com.jrtzcloudapi.riskwarn.v20200521.models.DescribeStockRiskInfoResponse;
 
 import java.lang.reflect.Type;
 
@@ -24,7 +24,6 @@ public class RiskWarnClient extends AbstractClient {
     private static String version = "2020-05-21";
 
     private static final String DEFAULT_REGION = "ap-shenzhen";
-    private static final String GET_STOCK_RISK_INFO_PATH = "/riskwarn/stocks//composite-risk";
 
     public RiskWarnClient(Credential credential) {
         super(RiskWarnClient.endPoint, RiskWarnClient.version, credential, DEFAULT_REGION, new ClientProfile());
@@ -46,10 +45,10 @@ public class RiskWarnClient extends AbstractClient {
     /**
      * 获取单个股票风险信息
      */
-    public StockRiskInfoResponse getStockRiskInfo(StockRiskInfoRequest req) throws JrtzCloudSDKException {
-        StockRiskInfoResponse rsp = null;
+    public DescribeStockRiskInfoResponse DescribeStockRiskInfo(DescribeStockRiskInfoRequest req) throws JrtzCloudSDKException {
+        DescribeStockRiskInfoResponse rsp = null;
         try {
-            Type type = new TypeToken<StockRiskInfoResponse>() {
+            Type type = new TypeToken<DescribeStockRiskInfoResponse>() {
             }.getType();
             rsp  = gson.fromJson(this.internalRequest(req, "GetStockRiskInfo", "/riskwarn/stocks/"+ req.getStockCode() +"/composite-risk"), type);
         } catch (JsonSyntaxException e) {

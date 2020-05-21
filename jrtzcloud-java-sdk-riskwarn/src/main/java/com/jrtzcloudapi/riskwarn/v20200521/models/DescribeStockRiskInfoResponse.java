@@ -15,7 +15,7 @@ import java.util.HashMap;
  * @Email hjx8862825@hotmail.com
  * PS: Please tell me if you find any bugs ^_^
  **/
-public class StockRiskInfoResponse extends AbstractModel {
+public class DescribeStockRiskInfoResponse extends AbstractModel {
 
     @SerializedName("RequestId")
     @Expose

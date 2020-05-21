@@ -33,7 +33,7 @@ public class BatchImportSelfStock {
             ClientProfile clientProfile = new ClientProfile();
             clientProfile.setHttpProfile(httpProfile);
 
-            // 实例化要请求产品(以cust为例)的client对象,clientProfile是可选的
+            // 实例化要请求产品的client对象,clientProfile是可选的
             CustClient client = new CustClient(cred, clientProfile);
 
             //入参：1、添加多只股票

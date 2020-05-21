@@ -14,7 +14,7 @@ import java.util.List;
  * @Email hjx8862825@hotmail.com
  * PS: Please tell me if you find any bugs ^_^
  **/
-public class StockRiskInfoRequest extends AbstractModel {
+public class DescribeStockRiskInfoRequest extends AbstractModel {
     /**
      * 用户自选股数组
      */

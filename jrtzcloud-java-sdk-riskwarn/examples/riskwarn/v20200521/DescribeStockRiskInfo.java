@@ -1,14 +1,12 @@
 package riskwarn.v20200521;
 
-import com.google.gson.Gson;
-import com.google.gson.GsonBuilder;
 import com.jrtzcloudapi.common.Credential;
 import com.jrtzcloudapi.common.exception.JrtzCloudSDKException;
 import com.jrtzcloudapi.common.profile.ClientProfile;
 import com.jrtzcloudapi.common.profile.HttpProfile;
 import com.jrtzcloudapi.riskwarn.v20200521.RiskWarnClient;
-import com.jrtzcloudapi.riskwarn.v20200521.models.StockRiskInfoRequest;
-import com.jrtzcloudapi.riskwarn.v20200521.models.StockRiskInfoResponse;
+import com.jrtzcloudapi.riskwarn.v20200521.models.DescribeStockRiskInfoRequest;
+import com.jrtzcloudapi.riskwarn.v20200521.models.DescribeStockRiskInfoResponse;
 
 /**
  * @Author Drx
@@ -17,13 +15,7 @@ import com.jrtzcloudapi.riskwarn.v20200521.models.StockRiskInfoResponse;
  * @Email hjx8862825@hotmail.com
  * PS: Please tell me if you find any bugs ^_^
  **/
-public class GetStockRiskInfo {
-
-    public static final String SIGN_JC1_256 = "JC1-HMAC-SHA256";
-
-    public static final String REGION = "ap-shenzhen";
-
-    private static String stockCode = "601058";
+public class DescribeStockRiskInfo {
 
     public static void main(String[] args) {
         try {
@@ -38,31 +30,26 @@ public class GetStockRiskInfo {
 
             // 实例化一个client选项，可选的，没有特殊需求可以跳过
             ClientProfile clientProfile = new ClientProfile();
-            clientProfile.setSignMethod(SIGN_JC1_256); // 指定签名算法(默认为HmacSHA256)
             clientProfile.setHttpProfile(httpProfile);
 
-            // 实例化要请求产品(以blten为例)的client对象,clientProfile是可选的
-            RiskWarnClient client = new RiskWarnClient(cred, REGION, clientProfile);
+            // 实例化要请求产品的client对象,clientProfile是可选的
+            RiskWarnClient client = new RiskWarnClient(cred, clientProfile);
 
             // 实例化一个sdpclient实例信息查询请求对象,每个接口都会对应一个request对象。
-            StockRiskInfoRequest req = new StockRiskInfoRequest();
+            DescribeStockRiskInfoRequest req = new DescribeStockRiskInfoRequest();
 
             // 填充请求参数,这里request对象的成员变量即对应接口的入参
             req.setStockCode("000100");
 
-            // 通过client对象调用DescribeAssetAllocationParam方法发起请求。注意请求方法名与请求对象是对应的
-            // 返回的resp是一个DescribeAssetAllocationParamResponse类的实例，与请求对象对应
-            StockRiskInfoResponse resp = client.getStockRiskInfo(req);
+            // 通过client对象调用 DescribeStockRiskInfo 方法发起请求。注意请求方法名与请求对象是对应的
+            // 返回的resp是一个 DescribeStockRiskInfoResponse 类的实例，与请求对象对应
+            DescribeStockRiskInfoResponse resp = client.DescribeStockRiskInfo(req);
 
-            System.out.println("\n");
-
-            // 输出json格式的字符串回包
-            Gson gson = new GsonBuilder().serializeNulls().create();
-            System.out.println(gson.toJson(resp));
+            System.out.println("\n" + DescribeStockRiskInfoResponse.toJsonString(resp));
 
             // 也可以取出单个值。
             // 你可以通过官网接口文档或跳转到response对象的定义处查看返回字段的定义
-//            System.out.println(resp.getRequestId());
+            System.out.println(resp.getRequestId());
         } catch (JrtzCloudSDKException e) {
             System.out.println(e.toString());
         }
