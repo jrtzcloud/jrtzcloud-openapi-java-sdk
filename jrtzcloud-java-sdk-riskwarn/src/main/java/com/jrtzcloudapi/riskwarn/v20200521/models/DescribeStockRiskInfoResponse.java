@@ -8,13 +8,6 @@ import java.math.BigDecimal;
 import java.sql.Timestamp;
 import java.util.HashMap;
 
-/**
- * @Author Drx
- * @Date 2020/5/19
- * @Description
- * @Email hjx8862825@hotmail.com
- * PS: Please tell me if you find any bugs ^_^
- **/
 public class DescribeStockRiskInfoResponse extends AbstractModel {
 
     @SerializedName("RequestId")

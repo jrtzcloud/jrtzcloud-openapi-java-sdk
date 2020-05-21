@@ -7,13 +7,6 @@ import com.jrtzcloudapi.common.AbstractModel;
 import java.util.HashMap;
 import java.util.List;
 
-/**
- * @Author Drx
- * @Date 2020/5/19
- * @Description
- * @Email hjx8862825@hotmail.com
- * PS: Please tell me if you find any bugs ^_^
- **/
 public class DescribeStockRiskInfoRequest extends AbstractModel {
     /**
      * 用户自选股数组

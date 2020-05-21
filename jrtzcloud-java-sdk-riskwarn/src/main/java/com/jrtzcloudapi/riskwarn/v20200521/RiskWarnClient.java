@@ -11,13 +11,6 @@ import com.jrtzcloudapi.riskwarn.v20200521.models.DescribeStockRiskInfoResponse;
 
 import java.lang.reflect.Type;
 
-/**
- * @Author Drx
- * @Date 2020/5/19
- * @Description
- * @Email hjx8862825@hotmail.com
- * PS: Please tell me if you find any bugs ^_^
- **/
 public class RiskWarnClient extends AbstractClient {
 
     private static String endPoint = "lyzt.investoday.net";
