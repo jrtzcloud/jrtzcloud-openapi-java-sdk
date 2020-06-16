@@ -8,6 +8,7 @@ import com.jrtzcloudapi.common.exception.JrtzCloudSDKException;
 import com.jrtzcloudapi.common.profile.ClientProfile;
 import com.jrtzcloudapi.riskwarn.v20200521.models.DescribeStockRiskInfoRequest;
 import com.jrtzcloudapi.riskwarn.v20200521.models.DescribeStockRiskInfoResponse;
+import com.jrtzcloudapi.riskwarn.v20200521.models.DescribeRiskStockCountResponse;
 
 import java.lang.reflect.Type;
 
@@ -44,6 +45,21 @@ public class RiskWarnClient extends AbstractClient {
             Type type = new TypeToken<DescribeStockRiskInfoResponse>() {
             }.getType();
             rsp  = gson.fromJson(this.internalRequest(req, "GetStockRiskInfo", "/riskwarn/stocks/"+ req.getStockCode() +"/composite-risk"), type);
+        } catch (JsonSyntaxException e) {
+            throw new JrtzCloudSDKException(e.getMessage());
+        }
+        return rsp;
+    }
+
+    /**
+     * 获取单个股票风险信息
+     */
+    public DescribeRiskStockCountResponse DescribeRiskStockCount() throws JrtzCloudSDKException {
+        DescribeRiskStockCountResponse rsp = null;
+        try {
+            Type type = new TypeToken<DescribeRiskStockCountResponse>() {
+            }.getType();
+            rsp  = gson.fromJson(this.internalGetRequest("GetRiskStockCount", "/riskwarn/stocks/risk-stock-count"), type);
         } catch (JsonSyntaxException e) {
             throw new JrtzCloudSDKException(e.getMessage());
         }

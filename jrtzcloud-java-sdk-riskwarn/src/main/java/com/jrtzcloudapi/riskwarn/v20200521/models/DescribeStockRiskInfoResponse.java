@@ -230,6 +230,75 @@ public class DescribeStockRiskInfoResponse extends AbstractModel {
     @Expose
     private Integer LastCompLevel;
 
+    @Override
+    protected void toMap(HashMap<String, String> map, String prefix) {
+        this.setParamSimple(map, prefix + "StockCode", this.StockCode);
+        this.setParamSimple(map, prefix + "StockName", this.StockName);
+        this.setParamSimple(map, prefix + "Industry", this.Industry);
+        this.setParamSimple(map, prefix + "PubDate", this.PubDate);
+        this.setParamSimple(map, prefix + "MarketCode", this.MarketCode);
+        this.setParamSimple(map, prefix + "RiskNum", this.RiskNum);
+        this.setParamSimple(map, prefix + "InfoReportRisk", this.InfoReportRisk);
+        this.setParamSimple(map, prefix + "AnalyserRisk", this.AnalyserRisk);
+        this.setParamSimple(map, prefix + "BehaviorRisk", this.BehaviorRisk);
+        this.setParamSimple(map, prefix + "FinanceRisk", this.FinanceRisk);
+        this.setParamSimple(map, prefix + "ProfitPredictRisk", this.ProfitPredictRisk);
+        this.setParamSimple(map, prefix + "GradeRisk", this.GradeRisk);
+        this.setParamSimple(map, prefix + "ReduceRisk", this.ReduceRisk);
+        this.setParamSimple(map, prefix + "ProfitPredictRiskReportID", this.ProfitPredictRiskReportID);
+        this.setParamSimple(map, prefix + "GradeRiskReportID", this.GradeRiskReportID);
+        this.setParamSimple(map, prefix + "ReduceRiskReportID", this.ReduceRiskReportID);
+        this.setParamSimple(map, prefix + "PledgeRisk", this.PledgeRisk);
+        this.setParamSimple(map, prefix + "StockHolderRisk", this.StockHolderRisk);
+        this.setParamSimple(map, prefix + "ManagerReduceRisk", this.ManagerReduceRisk);
+        this.setParamSimple(map, prefix + "UnRestrictRisk", this.UnRestrictRisk);
+        this.setParamSimple(map, prefix + "UnderWarningLineRatio", this.UnderWarningLineRatio);
+        this.setParamSimple(map, prefix + "BetweenWLandCLRatio", this.BetweenWLandCLRatio);
+        this.setParamSimple(map, prefix + "ArriveCloseLineRatio", this.ArriveCloseLineRatio);
+        this.setParamSimple(map, prefix + "UnderWarningLineNum", this.UnderWarningLineNum);
+        this.setParamSimple(map, prefix + "BetweenWLandCLNum", this.BetweenWLandCLNum);
+        this.setParamSimple(map, prefix + "ArriveCloseLineNum", this.ArriveCloseLineNum);
+        this.setParamSimple(map, prefix + "DebtPayingRisk", this.DebtPayingRisk);
+        this.setParamSimple(map, prefix + "StructureRisk", this.StructureRisk);
+        this.setParamSimple(map, prefix + "UnPaidRisk", this.UnPaidRisk);
+        this.setParamSimple(map, prefix + "ReceivableRisk", this.ReceivableRisk);
+        this.setParamSimple(map, prefix + "ResearchCapitalizeRisk", this.ResearchCapitalizeRisk);
+        this.setParamSimple(map, prefix + "PoorManagementRisk", this.PoorManagementRisk);
+        this.setParamSimple(map, prefix + "AchievementRisk", this.AchievementRisk);
+        this.setParamSimple(map, prefix + "AchievementNoticeRisk", this.AchievementNoticeRisk);
+        this.setParamSimple(map, prefix + "AchievementExpressRisk", this.AchievementExpressRisk);
+        this.setParamSimple(map, prefix + "AchievementNoticeSignal", this.AchievementNoticeSignal);
+        this.setParamSimple(map, prefix + "AchievementNoticeNewestEndDate", this.AchievementNoticeNewestEndDate);
+        this.setParamSimple(map, prefix + "AchievementNoticeNearlyNewEndDate", this.AchievementNoticeNearlyNewEndDate);
+        this.setParamSimple(map, prefix + "AchievementExpressEndDate", this.AchievementExpressEndDate);
+        this.setParamSimple(map, prefix + "AchievementReportEndDateSignal", this.AchievementReportEndDateSignal);
+        this.setParamSimple(map, prefix + "AchievementReportNewestEndDate", this.AchievementReportNewestEndDate);
+        this.setParamSimple(map, prefix + "AchievementReportNearlyNewEndDate", this.AchievementReportNearlyNewEndDate);
+        this.setParamSimple(map, prefix + "SentimentRisk", this.SentimentRisk);
+        this.setParamSimple(map, prefix + "AchievementReportRisk", this.AchievementReportRisk);
+        this.setParamSimple(map, prefix + "DebtPayingDate", this.DebtPayingDate);
+        this.setParamSimple(map, prefix + "DebtRatio", this.DebtRatio);
+        this.setParamSimple(map, prefix + "StructureDate", this.StructureDate);
+        this.setParamSimple(map, prefix + "GwInHolderRatio", this.GwInHolderRatio);
+        this.setParamSimple(map, prefix + "UnpaidDate", this.UnpaidDate);
+        this.setParamSimple(map, prefix + "Funds", this.Funds);
+        this.setParamSimple(map, prefix + "ShortTearDebts", this.ShortTearDebts);
+        this.setParamSimple(map, prefix + "ReceivableDate", this.ReceivableDate);
+        this.setParamSimple(map, prefix + "CurReceivableRatio", this.CurReceivableRatio);
+        this.setParamSimple(map, prefix + "LastReceivableRatio", this.LastReceivableRatio);
+        this.setParamSimple(map, prefix + "RchCapDate", this.RchCapDate);
+        this.setParamSimple(map, prefix + "PrDate", this.PrDate);
+        this.setParamSimple(map, prefix + "StructureType", this.StructureType);
+        this.setParamSimple(map, prefix + "FixedAssetRatio", this.FixedAssetRatio);
+        this.setParamSimple(map, prefix + "RcvInFlowRatio", this.RcvInFlowRatio);
+        this.setParamSimple(map, prefix + "MessageRiskType", this.MessageRiskType);
+        this.setParamSimple(map, prefix + "CompositeRiskLevel", this.CompositeRiskLevel);
+        this.setParamSimple(map, prefix + "LastCompLevel", this.LastCompLevel);
+        this.setParamSimple(map, prefix + "RequestId", this.RequestId);
+    }
+
+
+
     public String getStockCode() {
         return StockCode;
     }
@@ -732,73 +801,6 @@ public class DescribeStockRiskInfoResponse extends AbstractModel {
 
     public void setRequestId(String RequestId) {
         this.RequestId = RequestId;
-    }
-
-    @Override
-    protected void toMap(HashMap<String, String> map, String prefix) {
-        this.setParamSimple(map, prefix + "StockCode", this.StockCode);
-        this.setParamSimple(map, prefix + "StockName", this.StockName);
-        this.setParamSimple(map, prefix + "Industry", this.Industry);
-        this.setParamSimple(map, prefix + "PubDate", this.PubDate);
-        this.setParamSimple(map, prefix + "MarketCode", this.MarketCode);
-        this.setParamSimple(map, prefix + "RiskNum", this.RiskNum);
-        this.setParamSimple(map, prefix + "InfoReportRisk", this.InfoReportRisk);
-        this.setParamSimple(map, prefix + "AnalyserRisk", this.AnalyserRisk);
-        this.setParamSimple(map, prefix + "BehaviorRisk", this.BehaviorRisk);
-        this.setParamSimple(map, prefix + "FinanceRisk", this.FinanceRisk);
-        this.setParamSimple(map, prefix + "ProfitPredictRisk", this.ProfitPredictRisk);
-        this.setParamSimple(map, prefix + "GradeRisk", this.GradeRisk);
-        this.setParamSimple(map, prefix + "ReduceRisk", this.ReduceRisk);
-        this.setParamSimple(map, prefix + "ProfitPredictRiskReportID", this.ProfitPredictRiskReportID);
-        this.setParamSimple(map, prefix + "GradeRiskReportID", this.GradeRiskReportID);
-        this.setParamSimple(map, prefix + "ReduceRiskReportID", this.ReduceRiskReportID);
-        this.setParamSimple(map, prefix + "PledgeRisk", this.PledgeRisk);
-        this.setParamSimple(map, prefix + "StockHolderRisk", this.StockHolderRisk);
-        this.setParamSimple(map, prefix + "ManagerReduceRisk", this.ManagerReduceRisk);
-        this.setParamSimple(map, prefix + "UnRestrictRisk", this.UnRestrictRisk);
-        this.setParamSimple(map, prefix + "UnderWarningLineRatio", this.UnderWarningLineRatio);
-        this.setParamSimple(map, prefix + "BetweenWLandCLRatio", this.BetweenWLandCLRatio);
-        this.setParamSimple(map, prefix + "ArriveCloseLineRatio", this.ArriveCloseLineRatio);
-        this.setParamSimple(map, prefix + "UnderWarningLineNum", this.UnderWarningLineNum);
-        this.setParamSimple(map, prefix + "BetweenWLandCLNum", this.BetweenWLandCLNum);
-        this.setParamSimple(map, prefix + "ArriveCloseLineNum", this.ArriveCloseLineNum);
-        this.setParamSimple(map, prefix + "DebtPayingRisk", this.DebtPayingRisk);
-        this.setParamSimple(map, prefix + "StructureRisk", this.StructureRisk);
-        this.setParamSimple(map, prefix + "UnPaidRisk", this.UnPaidRisk);
-        this.setParamSimple(map, prefix + "ReceivableRisk", this.ReceivableRisk);
-        this.setParamSimple(map, prefix + "ResearchCapitalizeRisk", this.ResearchCapitalizeRisk);
-        this.setParamSimple(map, prefix + "PoorManagementRisk", this.PoorManagementRisk);
-        this.setParamSimple(map, prefix + "AchievementRisk", this.AchievementRisk);
-        this.setParamSimple(map, prefix + "AchievementNoticeRisk", this.AchievementNoticeRisk);
-        this.setParamSimple(map, prefix + "AchievementExpressRisk", this.AchievementExpressRisk);
-        this.setParamSimple(map, prefix + "AchievementNoticeSignal", this.AchievementNoticeSignal);
-        this.setParamSimple(map, prefix + "AchievementNoticeNewestEndDate", this.AchievementNoticeNewestEndDate);
-        this.setParamSimple(map, prefix + "AchievementNoticeNearlyNewEndDate", this.AchievementNoticeNearlyNewEndDate);
-        this.setParamSimple(map, prefix + "AchievementExpressEndDate", this.AchievementExpressEndDate);
-        this.setParamSimple(map, prefix + "AchievementReportEndDateSignal", this.AchievementReportEndDateSignal);
-        this.setParamSimple(map, prefix + "AchievementReportNewestEndDate", this.AchievementReportNewestEndDate);
-        this.setParamSimple(map, prefix + "AchievementReportNearlyNewEndDate", this.AchievementReportNearlyNewEndDate);
-        this.setParamSimple(map, prefix + "SentimentRisk", this.SentimentRisk);
-        this.setParamSimple(map, prefix + "AchievementReportRisk", this.AchievementReportRisk);
-        this.setParamSimple(map, prefix + "DebtPayingDate", this.DebtPayingDate);
-        this.setParamSimple(map, prefix + "DebtRatio", this.DebtRatio);
-        this.setParamSimple(map, prefix + "StructureDate", this.StructureDate);
-        this.setParamSimple(map, prefix + "GwInHolderRatio", this.GwInHolderRatio);
-        this.setParamSimple(map, prefix + "UnpaidDate", this.UnpaidDate);
-        this.setParamSimple(map, prefix + "Funds", this.Funds);
-        this.setParamSimple(map, prefix + "ShortTearDebts", this.ShortTearDebts);
-        this.setParamSimple(map, prefix + "ReceivableDate", this.ReceivableDate);
-        this.setParamSimple(map, prefix + "CurReceivableRatio", this.CurReceivableRatio);
-        this.setParamSimple(map, prefix + "LastReceivableRatio", this.LastReceivableRatio);
-        this.setParamSimple(map, prefix + "RchCapDate", this.RchCapDate);
-        this.setParamSimple(map, prefix + "PrDate", this.PrDate);
-        this.setParamSimple(map, prefix + "StructureType", this.StructureType);
-        this.setParamSimple(map, prefix + "FixedAssetRatio", this.FixedAssetRatio);
-        this.setParamSimple(map, prefix + "RcvInFlowRatio", this.RcvInFlowRatio);
-        this.setParamSimple(map, prefix + "MessageRiskType", this.MessageRiskType);
-        this.setParamSimple(map, prefix + "CompositeRiskLevel", this.CompositeRiskLevel);
-        this.setParamSimple(map, prefix + "LastCompLevel", this.LastCompLevel);
-        this.setParamSimple(map, prefix + "RequestId", this.RequestId);
     }
 
 }

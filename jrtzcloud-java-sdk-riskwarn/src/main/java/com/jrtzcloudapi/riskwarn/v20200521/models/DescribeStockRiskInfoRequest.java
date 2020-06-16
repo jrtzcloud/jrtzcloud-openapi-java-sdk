@@ -11,9 +11,9 @@ public class DescribeStockRiskInfoRequest extends AbstractModel {
     /**
      * 用户自选股数组
      */
-    @SerializedName("stockCode")
+    @SerializedName("StockCode")
     @Expose
-    private String stockCode;
+    private String StockCode;
 
 
     @Override
@@ -22,10 +22,10 @@ public class DescribeStockRiskInfoRequest extends AbstractModel {
     }
 
     public String getStockCode() {
-        return stockCode;
+        return StockCode;
     }
 
-    public void setStockCode(String stockCode) {
-        this.stockCode = stockCode;
+    public void setStockCode(String StockCode) {
+        this.StockCode = StockCode;
     }
 }
