@@ -15,7 +15,7 @@ import java.lang.reflect.Type;
 public class RiskWarnClient extends AbstractClient {
 
     private static String endPoint = "lyzt.investoday.net";
-    private static String version = "2020-05-21";
+    private static String version = "2019-11-19";
 
     private static final String DEFAULT_REGION = "ap-shenzhen";
 

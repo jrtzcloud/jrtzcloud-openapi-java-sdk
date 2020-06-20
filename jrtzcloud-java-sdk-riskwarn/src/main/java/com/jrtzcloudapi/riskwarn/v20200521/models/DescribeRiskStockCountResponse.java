@@ -12,9 +12,21 @@ public class DescribeRiskStockCountResponse extends AbstractModel {
     @Expose
     private String RequestId;
 
-    @SerializedName("RiskStockCount")
+    @SerializedName("Zero")
     @Expose
-    private Integer RiskStockCount;
+    private Integer Zero;
+
+    @SerializedName("One")
+    @Expose
+    private Integer One;
+
+    @SerializedName("Two")
+    @Expose
+    private Integer Two;
+
+    @SerializedName("Three")
+    @Expose
+    private Integer Three;
 
     public String getRequestId() {
         return RequestId;
@@ -24,18 +36,45 @@ public class DescribeRiskStockCountResponse extends AbstractModel {
         RequestId = requestId;
     }
 
-    public Integer getCount() {
-        return RiskStockCount;
+    public Integer getZero() {
+        return Zero;
     }
 
-    public void setCount(Integer count) {
-        this.RiskStockCount = count;
+    public void setZero(Integer zero) {
+        Zero = zero;
+    }
+
+    public Integer getOne() {
+        return One;
+    }
+
+    public void setOne(Integer one) {
+        One = one;
+    }
+
+    public Integer getTwo() {
+        return Two;
+    }
+
+    public void setTwo(Integer two) {
+        Two = two;
+    }
+
+    public Integer getThree() {
+        return Three;
+    }
+
+    public void setThree(Integer three) {
+        Three = three;
     }
 
     @Override
     protected void toMap(HashMap<String, String> map, String prefix) {
-        this.setParamSimple(map, prefix + "RiskStockCount", this.RiskStockCount);
         this.setParamSimple(map, prefix + "RequestId", this.RequestId);
+        this.setParamSimple(map, prefix + "Zero", this.Zero);
+        this.setParamSimple(map, prefix + "One", this.One);
+        this.setParamSimple(map, prefix + "Two", this.Two);
+        this.setParamSimple(map, prefix + "Three", this.Three);
     }
 
 }

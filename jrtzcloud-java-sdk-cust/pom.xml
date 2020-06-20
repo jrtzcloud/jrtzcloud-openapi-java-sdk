@@ -6,7 +6,7 @@
   <version>1.0.1</version>
   <packaging>jar</packaging>
   <name>jrtzcloud-java-sdk-cust</name>
-  <url>https://help.investoday.net/</url>
+  <url>https://help.test.investoday.net/</url>
   <description>Jrtz Cloud Open API SDK for Java Custom</description>
 
   <dependencies>
