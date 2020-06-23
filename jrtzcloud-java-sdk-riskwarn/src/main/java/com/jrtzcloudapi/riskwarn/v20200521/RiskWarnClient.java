@@ -52,7 +52,7 @@ public class RiskWarnClient extends AbstractClient {
     }
 
     /**
-     * 获取单个股票风险信息
+     * 获取全市场风险股票总数
      */
     public DescribeRiskStockCountResponse DescribeRiskStockCount() throws JrtzCloudSDKException {
         DescribeRiskStockCountResponse rsp = null;
