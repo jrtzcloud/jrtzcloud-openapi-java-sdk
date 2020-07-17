@@ -6,25 +6,25 @@ import com.jrtzcloudapi.common.AbstractModel;
 
 import java.util.HashMap;
 
-public class DescribeStockRiskInfoRequest extends AbstractModel {
+public class DescribeBatchStockRiskInfoRequest extends AbstractModel {
     /**
      * 用户自选股数组(多个用,隔开)
      */
-    @SerializedName("StockCode")
+    @SerializedName("StockCodeList")
     @Expose
-    private String StockCode;
+    private String StockCodeList;
 
 
     @Override
     protected void toMap(HashMap<String, String> map, String prefix) {
-
+        this.setParamSimple(map, prefix + "StockCodeList", this.StockCodeList);
     }
 
-    public String getStockCode() {
-        return StockCode;
+    public String getStockCodeList() {
+        return StockCodeList;
     }
 
-    public void setStockCode(String StockCode) {
-        this.StockCode = StockCode;
+    public void setStockCodeList(String stockCodeList) {
+        StockCodeList = stockCodeList;
     }
 }
