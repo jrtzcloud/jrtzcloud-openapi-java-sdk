@@ -3,18 +3,10 @@ package com.jrtzcloudapi.riskwarn.v20200521.models;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 import com.jrtzcloudapi.common.AbstractModel;
-import riskwarn.v20200521.DescribeStockRiskInfo;
 
 import java.util.HashMap;
 import java.util.List;
 
-/**
- * @Author Drx
- * @Date 2020/7/9
- * @Description
- * @Email hjx8862825@hotmail.com
- * PS: Please tell me if you find any bugs ^_^
- **/
 public class DescribeBatchStockRiskInfoResponse extends AbstractModel {
 
     @SerializedName("RequestId")

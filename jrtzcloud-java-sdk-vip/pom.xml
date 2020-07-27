@@ -2,12 +2,12 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
     <groupId>com.jrtzcloud</groupId>
-    <artifactId>jrtzcloud-java-sdk-riskwarn</artifactId>
-    <version>1.0.3</version>
+    <artifactId>jrtzcloud-java-sdk-vip</artifactId>
+    <version>1.0.0</version>
     <packaging>jar</packaging>
-    <name>jrtzcloud-java-sdk-riskwarn</name>
-    <url>https://help.test.investoday.net</url>
-    <description>Jrtz Cloud Open API SDK for Java Riskwarn</description>
+    <name>jrtzcloud-java-sdk-vip</name>
+    <url>https://help.test.investoday.net/</url>
+    <description>Jrtz Cloud Open API SDK for Java Vip</description>
 
     <dependencies>
         <dependency>
@@ -28,7 +28,7 @@
             <name>Apache License, Version 2.0</name>
             <url>http://www.apache.org/licenses/LICENSE-2.0</url>
             <distribution>repo</distribution>
-            <comments>Jrtz Cloud Open API SDK for Java Riskwarn</comments>
+            <comments>Jrtz Cloud Open API SDK for Java Vip</comments>
         </license>
     </licenses>
 
@@ -93,7 +93,7 @@
                 <artifactId>maven-source-plugin</artifactId>
                 <executions>
                     <execution>
-                        <id>jrtzcloud-java-sdk-riskwarn</id>
+                        <id>jrtzcloud-java-sdk-vip</id>
                         <goals>
                             <goal>jar</goal>
                         </goals>
@@ -105,7 +105,7 @@
                 <artifactId>maven-javadoc-plugin</artifactId>
                 <executions>
                     <execution>
-                        <id>jrtzcloud-java-sdk-riskwarn</id>
+                        <id>jrtzcloud-java-sdk-vip</id>
                         <goals>
                             <goal>jar</goal>
                         </goals>
