@@ -1,5 +1,6 @@
 package consensus.v20201119;
 
+import com.google.gson.JsonArray;
 import com.google.gson.JsonObject;
 import com.jrtzcloudapi.common.Credential;
 import com.jrtzcloudapi.common.exception.JrtzCloudSDKException;
@@ -18,8 +19,8 @@ public class DescribeIndFrcstAnaem {
     private static Integer DEV = 0;
     private static Integer PROD = 1;
 
-    private static Integer ENV = DEV;
-//    private static Integer ENV = PROD;
+//    private static Integer ENV = DEV;
+    private static Integer ENV = PROD;
 
     public static void main(String[] args) {
         try {
@@ -27,9 +28,11 @@ public class DescribeIndFrcstAnaem {
             Credential cred = new Credential(Constants.SECRET_ID, Constants.SECRET_KEY);
             // 实例化一个http选项，可选的，没有特殊需求可以跳过
             HttpProfile httpProfile = new HttpProfile();
+            if (ENV == DEV) httpProfile.setProtocol(HttpProfile.REQ_HTTP);
             httpProfile.setReqMethod(HttpProfile.REQ_GET); // (默认为POST请求)
             httpProfile.setConnTimeout(30); // 请求连接超时时间，单位为秒(默认60秒)
-            httpProfile.setEndpoint("lyzt.dev.investoday.net"); // 指定接入地域域名(默认就近接入)
+            httpProfile.setEndpoint("localhost:8361"); // 指定接入地域域名(默认就近接入)
+//            httpProfile.setEndpoint("lyzt.dev.investoday.net"); // 指定接入地域域名(默认就近接入)
             if (ENV == PROD) httpProfile.setEndpoint("dataapi.investoday.net"); // 指定接入地域域名(默认就近接入)
 
             // 实例化一个client选项，可选的，没有特殊需求可以跳过
@@ -62,9 +65,9 @@ public class DescribeIndFrcstAnaem {
         req.setSecCd("399106");
         req.setOperType(1);
         req.setRptRang(1);
-//            req.setRptYr(2019);
-        req.setPage(page);
-        req.setPageCount(1000);
+//        req.setRptYr(2019);
+        req.setPageNo(page);
+        req.setPageSize(1000);
 
 
         // 这里还支持以标准json格式的string来赋值请求参数的方式。下面的代码跟上面的参数赋值是等效的
@@ -80,16 +83,16 @@ public class DescribeIndFrcstAnaem {
         // 输出json格式的字符串回包
 //            System.out.println("SUCCESS==>\n" + DescribeResponse.toJsonString(resp));
         System.out.println("SUCCESS ==> " + resp.getData().size());
-        List<JsonObject> data = resp.getData();
+        List<JsonArray> data = resp.getData();
 
-        List<JsonObject> rptYrList = data.stream().filter(k -> k.get("RptYr").getAsInt() == 2019).collect(Collectors.toList());
+        List<JsonArray> rptYrList = data.stream().filter(k -> k.get(3).getAsInt() == 2019).collect(Collectors.toList());
 
         System.out.println("rptYrList ==> " + rptYrList.size());
         RPTYRCOUNT += rptYrList.size();
 
         // 也可以取出单个值。
         // 你可以通过官网接口文档或跳转到response对象的定义处查看返回字段的定义
-        System.out.println(resp.getPage() + " === " + resp.getHasNextPage());
+        System.out.println(resp.getPageNo() + " === " + resp.getHasNextPage());
         return resp.getHasNextPage();
     }
 }
