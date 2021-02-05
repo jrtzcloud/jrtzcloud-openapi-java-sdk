@@ -7,6 +7,7 @@ import com.jrtzcloudapi.common.AbstractModel;
 import java.util.HashMap;
 import java.util.List;
 
+@Deprecated
 public class DescribeBatchStockRiskInfoResponse extends AbstractModel {
 
     @SerializedName("RequestId")

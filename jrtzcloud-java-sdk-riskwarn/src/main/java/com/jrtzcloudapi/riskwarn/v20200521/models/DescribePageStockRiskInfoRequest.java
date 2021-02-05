@@ -6,13 +6,20 @@ import com.jrtzcloudapi.common.AbstractModel;
 
 import java.util.HashMap;
 
-public class DescribeBatchStockRiskInfoRequest extends AbstractModel {
+public class DescribePageStockRiskInfoRequest extends AbstractModel {
     /**
-     * 用户自选股数组(多个用,隔开)
+     * 页码
      */
-    @SerializedName("StockCodeList")
+    @SerializedName("PageNo")
     @Expose
-    private String StockCodeList;
+    private Integer PageNo;
+
+    /**
+     * 每页数量
+     */
+    @SerializedName("PageSize")
+    @Expose
+    private Integer PageSize;
 
     /**
      * 字段数组(多个用,隔开)
@@ -23,16 +30,25 @@ public class DescribeBatchStockRiskInfoRequest extends AbstractModel {
 
     @Override
     protected void toMap(HashMap<String, String> map, String prefix) {
-        this.setParamSimple(map, prefix + "StockCodeList", this.StockCodeList);
+        this.setParamSimple(map, prefix + "PageNo", this.PageNo);
+        this.setParamSimple(map, prefix + "PageSize", this.PageSize);
         this.setParamSimple(map, prefix + "Fields", this.Fields);
     }
 
-    public String getStockCodeList() {
-        return StockCodeList;
+    public Integer getPageNo() {
+        return PageNo;
     }
 
-    public void setStockCodeList(String stockCodeList) {
-        StockCodeList = stockCodeList;
+    public void setPageNo(Integer pageNo) {
+        PageNo = pageNo;
+    }
+
+    public Integer getPageSize() {
+        return PageSize;
+    }
+
+    public void setPageSize(Integer pageSize) {
+        PageSize = pageSize;
     }
 
     public String getFields() {
@@ -43,3 +59,4 @@ public class DescribeBatchStockRiskInfoRequest extends AbstractModel {
         Fields = fields;
     }
 }
+

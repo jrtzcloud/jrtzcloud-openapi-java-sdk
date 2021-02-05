@@ -6,11 +6,9 @@ import com.jrtzcloudapi.common.profile.ClientProfile;
 import com.jrtzcloudapi.common.profile.HttpProfile;
 import com.jrtzcloudapi.riskwarn.v20200521.RiskWarnClient;
 import com.jrtzcloudapi.riskwarn.v20200521.models.DescribeBatchStockRiskInfoRequest;
-import com.jrtzcloudapi.riskwarn.v20200521.models.DescribeBatchStockRiskInfoResponse;
-import com.jrtzcloudapi.riskwarn.v20200521.models.DescribeStockRiskInfoRequest;
-import com.jrtzcloudapi.riskwarn.v20200521.models.DescribeStockRiskInfoResponse;
+import com.jrtzcloudapi.riskwarn.v20200521.models.DescribeResponse;
 
-public class DescribeBatchStockRiskInfo {
+public class DescribeBatchStockRiskInfoV2 {
 
     public static void main(String[] args) {
         try {
@@ -42,12 +40,13 @@ public class DescribeBatchStockRiskInfo {
                     "300006,300008,300009,600007,600008,600200,002001,002002,002003,002004,002005,601000,601001,601002,601003," +
 //                    "601005,601006,601007," +
                     "603833,600050,600481,600761,600900,600963,600981,601985,603819,000417,000521,000543");
+            req.setFields("StockCode,PubDate,DebtPayingRisk");
 
             // 通过client对象调用 DescribeStockRiskInfo 方法发起请求。注意请求方法名与请求对象是对应的
             // 返回的resp是一个 DescribeBatchStockRiskInfoResponse 类的实例，与请求对象对应
-            DescribeBatchStockRiskInfoResponse resp = client.DescribeBatchStockRiskInfo(req);
+            DescribeResponse resp = client.DescribeBatchStockRiskInfoV2(req);
 
-            System.out.println("\n" + DescribeBatchStockRiskInfoResponse.toJsonString(resp));
+            System.out.println("\n" + DescribeResponse.toJsonString(resp));
 
             // 也可以取出单个值。
             // 你可以通过官网接口文档或跳转到response对象的定义处查看返回字段的定义
