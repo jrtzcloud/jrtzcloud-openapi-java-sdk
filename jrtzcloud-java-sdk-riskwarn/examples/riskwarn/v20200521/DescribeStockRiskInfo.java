@@ -25,22 +25,21 @@ public class DescribeStockRiskInfo {
             ClientProfile clientProfile = new ClientProfile();
             clientProfile.setHttpProfile(httpProfile);
 
-            // 实例化要请求产品的client对象,clientProfile是可选的
+            // 实例化要请求产品的client对象，clientProfile是可选的
             RiskWarnClient client = new RiskWarnClient(cred, clientProfile);
 
-            // 实例化一个client实例信息查询请求对象,每个接口都会对应一个request对象。
+            // 实例化一个client实例信息查询请求对象，每个接口都会对应一个request对象。
             DescribeStockRiskInfoRequest req = new DescribeStockRiskInfoRequest();
 
-            // 填充请求参数,这里request对象的成员变量即对应接口的入参
+            // 填充请求参数，这里request对象的成员变量即对应接口的入参
             req.setStockCode("000100");
 
-            // 通过client对象调用 DescribeStockRiskInfo 方法发起请求。注意请求方法名与请求对象是对应的
-            // 返回的resp是一个 DescribeStockRiskInfoResponse 类的实例，与请求对象对应
+            // 通过client对象发起请求，注意请求方法名与请求对象是对应的
             DescribeStockRiskInfoResponse resp = client.DescribeStockRiskInfo(req);
 
             System.out.println("\n" + DescribeStockRiskInfoResponse.toJsonString(resp));
 
-            // 也可以取出单个值。
+            // 也可以取出单个值
             // 你可以通过官网接口文档或跳转到response对象的定义处查看返回字段的定义
             System.out.println(resp.getRequestId());
         } catch (JrtzCloudSDKException e) {

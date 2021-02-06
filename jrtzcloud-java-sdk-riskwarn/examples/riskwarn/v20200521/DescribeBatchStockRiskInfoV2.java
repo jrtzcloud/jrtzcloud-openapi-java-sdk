@@ -25,13 +25,13 @@ public class DescribeBatchStockRiskInfoV2 {
             ClientProfile clientProfile = new ClientProfile();
             clientProfile.setHttpProfile(httpProfile);
 
-            // 实例化要请求产品的client对象,clientProfile是可选的
+            // 实例化要请求产品的client对象，clientProfile是可选的
             RiskWarnClient client = new RiskWarnClient(cred, clientProfile);
 
-            // 实例化一个client实例信息查询请求对象,每个接口都会对应一个request对象。
+            // 实例化一个client实例信息查询请求对象，每个接口都会对应一个request对象
             DescribeBatchStockRiskInfoRequest req = new DescribeBatchStockRiskInfoRequest();
 
-            // 填充请求参数,这里request对象的成员变量即对应接口的入参
+            // 填充请求参数，这里request对象的成员变量即对应接口的入参
             req.setStockCodeList("600220,600909,300724,600503,600009,000001,600004,601390,600018,600030,600036,600177,600284," +
                     "601599,002566,300222,000651,600696,600730,600760,600936,601988,603518,603858,000750,002426,002747,002763," +
                     "300413,300433,300455,002538,300038,300042,300329,002218,300370,300618,600000,000728,002137,300001,600111," +
@@ -42,13 +42,12 @@ public class DescribeBatchStockRiskInfoV2 {
                     "603833,600050,600481,600761,600900,600963,600981,601985,603819,000417,000521,000543");
             req.setFields("StockCode,PubDate,DebtPayingRisk");
 
-            // 通过client对象调用 DescribeStockRiskInfo 方法发起请求。注意请求方法名与请求对象是对应的
-            // 返回的resp是一个 DescribeBatchStockRiskInfoResponse 类的实例，与请求对象对应
+            // 通过client对象发起请求，注意请求方法名与请求对象是对应的
             DescribeResponse resp = client.DescribeBatchStockRiskInfoV2(req);
 
             System.out.println("\n" + DescribeResponse.toJsonString(resp));
 
-            // 也可以取出单个值。
+            // 也可以取出单个值
             // 你可以通过官网接口文档或跳转到response对象的定义处查看返回字段的定义
             System.out.println(resp.getRequestId());
         } catch (JrtzCloudSDKException e) {
