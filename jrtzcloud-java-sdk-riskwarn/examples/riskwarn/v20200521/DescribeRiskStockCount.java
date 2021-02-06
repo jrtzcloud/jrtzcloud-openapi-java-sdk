@@ -16,9 +16,9 @@ public class DescribeRiskStockCount {
 
             // 实例化一个http选项，可选的，没有特殊需求可以跳过
             HttpProfile httpProfile = new HttpProfile();
-            httpProfile.setReqMethod("GET"); // get请求(默认为post请求)
-            httpProfile.setConnTimeout(30); // 请求连接超时时间，单位为秒(默认60秒)
-            httpProfile.setEndpoint("lyzt.test.investoday.net"); // 指定接入地域域名(默认就近接入)
+            httpProfile.setReqMethod("GET"); // GET请求，缺省值为POST请求
+            httpProfile.setConnTimeout(30); // 请求连接超时时间，单位为秒，缺省值为60秒
+            httpProfile.setEndpoint("lyzt.test.investoday.net"); // 此为测试域名，缺省值为生产域名
 
             // 实例化一个client选项，可选的，没有特殊需求可以跳过
             ClientProfile clientProfile = new ClientProfile();
